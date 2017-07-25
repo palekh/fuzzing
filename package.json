@@ -7,14 +7,21 @@
   "license": "MIT",
   "scripts": {
     "compile": "tsc",
-    "precommit": "npm test",
-    "test": "npm run compile && ava",
-    "watch": "npm run compile && ava --watch",
-    "start": "npm run watch"
+    "compilew": "tsc --watch",
+    "test": "ava --verbose",
+    "testw": "ava --watch --verbose",
+    "precommit": "npm run test",
+    "start": "npm run compilew"
   },
   "devDependencies": {
+    "@types/node": "8.0.16",
     "ava": "0.21.0",
     "tslint": "5.5.0",
     "typescript": "2.4.2"
+  },
+  "ava": {
+    "files": [
+      "lib/**.test.js"
+    ]
   }
 }
