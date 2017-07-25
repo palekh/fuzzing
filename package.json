@@ -1,0 +1,20 @@
+{
+  "name": "fuzzing",
+  "version": "0.0.1",
+  "description": "Tool set for fuzzing testing.",
+  "repository": "https://github.com/usehotkey/fuzzing.git",
+  "author": "Igor Golopolosov<igolopolosov@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "compile": "tsc",
+    "precommit": "npm test",
+    "test": "npm run compile && ava",
+    "watch": "npm run compile && ava --watch",
+    "start": "npm run watch"
+  },
+  "devDependencies": {
+    "ava": "0.21.0",
+    "tslint": "5.5.0",
+    "typescript": "2.4.2"
+  }
+}
