@@ -1,6 +1,7 @@
 import {test} from "ava";
-import {cornerCaseNumbers} from "../number/number";
+import {functionFuzzer} from "../fuzzers/functionFuzzer";
 import {numberArrayFuzzing} from "../fuzzing";
+import {cornerCaseNumbers} from "../number/number";
 import {sum} from "./sum";
 
 test("summarize simple array", (t) => {
@@ -13,6 +14,10 @@ test("summarize corner cases array", (t) => {
     t.is(result, NaN);
 });
 
-test("fuzzing sum function", (t) => {
+test("array fuzzing sum function", (t) => {
     t.notThrows(() => numberArrayFuzzing(sum));
+});
+
+test("function fuzzing sum function", (t) => {
+    t.is({}, functionFuzzer(sum).fuzz().getWarnings());
 });

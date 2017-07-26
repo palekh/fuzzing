@@ -21,7 +21,7 @@
   },
   "ava": {
     "files": [
-      "lib/**/*.spec.js"
+      "lib/**/*.test.js"
     ]
   }
 }
