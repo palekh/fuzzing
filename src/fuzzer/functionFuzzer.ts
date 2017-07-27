@@ -5,21 +5,17 @@ import {getUndefined} from "../check/undefined/undefined";
 import {Fuzzer, IFuzzer} from "./fuzzer";
 
 class FunctionFuzzer extends Fuzzer implements IFuzzer {
-    protected readonly testSet: AnyFunction[] = [
-        getUndefined,
-        nonConsequentNumberArray,
-        cornerCaseNumbers,
-    ];
-
+    protected readonly testSet: AnyFunction[];
     private func: AnyFunction;
 
-    private constructor(func: AnyFunction) {
+    private constructor(func: AnyFunction, testSet: AnyFunction[] ) {
         super();
         this.func = func;
+        this.testSet = testSet;
     }
 
-    public static create(func: AnyFunction): FunctionFuzzer {
-        return new FunctionFuzzer(func);
+    public static create(func: AnyFunction, testSet: AnyFunction[] ): FunctionFuzzer {
+        return new FunctionFuzzer(func, testSet);
     }
 
     public fuzz(): Fuzzer {
@@ -55,6 +51,18 @@ class FunctionFuzzer extends Fuzzer implements IFuzzer {
     }
 }
 
+export function functionNumberArrayFuzzer(func: AnyFunction): FunctionFuzzer {
+    return FunctionFuzzer.create(func, [
+        getUndefined,
+        nonConsequentNumberArray,
+        cornerCaseNumbers,
+    ]);
+}
+
 export function functionFuzzer(func: AnyFunction): FunctionFuzzer {
-    return FunctionFuzzer.create(func);
+    return FunctionFuzzer.create(func, [
+        getUndefined,
+        nonConsequentNumberArray,
+        cornerCaseNumbers,
+    ]);
 }
