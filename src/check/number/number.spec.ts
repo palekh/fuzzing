@@ -1,8 +1,8 @@
 import {test} from "ava";
-import {cornerCaseNumbers, nonConsequentNumberArray} from "./number";
+import {cornerCaseNumberArray, nonConsequentNumberArray} from "./number";
 
 test("cornerCaseNumbers should contain correct array", (t) => {
-    const numbers = cornerCaseNumbers();
+    const numbers = cornerCaseNumberArray();
 
     t.deepEqual(numbers, [
         0,

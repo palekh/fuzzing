@@ -1,12 +1,10 @@
-import {AnyFunction} from "./anyFunction.type";
-
 export interface IResultTyped extends IResult {
     type: ResultType;
 }
 
 export interface IResult {
     description: string;
-    testFunction: AnyFunction;
+    param: any;
     result?: any;
     error?: Error;
 }

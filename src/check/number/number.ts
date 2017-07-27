@@ -1,4 +1,4 @@
-export function cornerCaseNumbers(): number[] {
+export function cornerCaseNumberArray(): number[] {
     return [
         0,
         1,

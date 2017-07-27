@@ -1,4 +1,3 @@
-import {AnyFunction} from "../_types/anyFunction.type";
 import {IResultTyped} from "../_types/result";
 import {Collector, ICollector} from "../collector/collector";
 
@@ -14,11 +13,13 @@ export interface IFuzzer {
     getAllResults(): IResultTyped[];
 }
 
+export type IFuzzerParams = any[];
+
 export abstract class Fuzzer implements IFuzzer {
-    protected readonly testSet: AnyFunction[];
+    protected readonly params: IFuzzerParams;
     protected collector: ICollector = Collector.create();
 
-    protected constructor(...args: any[]) {
+    protected constructor() {
         // empty
     }
 
@@ -39,4 +40,6 @@ export abstract class Fuzzer implements IFuzzer {
     public getAllResults(): IResultTyped[] {
         return this.collector.getAllResults();
     }
+
+    protected abstract fuzzIteration(args: any): void;
 }
