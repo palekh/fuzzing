@@ -1,4 +1,4 @@
-export function strangeResults() {
+export function getStrangeResults() {
     return [
         NaN,
         undefined,
@@ -9,7 +9,7 @@ export function strangeResults() {
 }
 
 export function isStrangeResult(result: any): boolean {
-    const results = strangeResults();
+    const results = getStrangeResults();
 
     if (isNaN(result)) {
         return true;

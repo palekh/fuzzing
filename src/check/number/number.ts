@@ -11,7 +11,7 @@ export function cornerCaseNumbers(): number[] {
     ];
 }
 
-export function nonConsecuentiveNumberArray(): number[] {
+export function nonConsequentNumberArray(): number[] {
     const arr = [];
     arr[13] = 13;
 

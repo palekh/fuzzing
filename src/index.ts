@@ -1,1 +1,1 @@
-export {fuzzing} from "./fuzzing";
+export {functionFuzzer} from "./fuzzer/functionFuzzer";
