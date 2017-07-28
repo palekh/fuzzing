@@ -1,10 +1,8 @@
 import {AnyFunction} from "../_types/anyFunction.type";
-import {cornerCaseNumberArray, nonConsequentNumberArray} from "../check/number/number";
 import {isStrangeResult} from "../check/strangeResults";
-import {getUndefined} from "../check/undefined/undefined";
 import {Fuzzer, IFuzzer, IFuzzerParams} from "./fuzzer";
 
-class FunctionFuzzer extends Fuzzer implements IFuzzer {
+export class FunctionFuzzer extends Fuzzer implements IFuzzer {
     protected readonly params: IFuzzerParams;
     private func: AnyFunction;
 
@@ -52,27 +50,4 @@ class FunctionFuzzer extends Fuzzer implements IFuzzer {
             });
         }
     }
-}
-
-export function functionNumberArrayFuzzer(func: AnyFunction): FunctionFuzzer {
-    return FunctionFuzzer.create(
-        func,
-        [
-            getUndefined(),
-            nonConsequentNumberArray(),
-            cornerCaseNumberArray(),
-        ],
-    );
-}
-
-export function functionFuzzer(func: AnyFunction): FunctionFuzzer {
-    return FunctionFuzzer.create(
-        func,
-        [
-            getUndefined(),
-            nonConsequentNumberArray(),
-            cornerCaseNumberArray(),
-            ...cornerCaseNumberArray(),
-        ],
-    );
 }

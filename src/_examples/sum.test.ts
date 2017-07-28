@@ -1,5 +1,5 @@
 import {test} from "ava";
-import {functionFuzzer} from "../fuzzer/functionFuzzer";
+import {functionFuzzer} from "../fuzzerFactory/functionFuzzerFactory";
 import {sum} from "./sum";
 
 test("summarize simple array", (t) => {
@@ -8,5 +8,5 @@ test("summarize simple array", (t) => {
 });
 
 test("function fuzzing sum function", (t) => {
-    t.is({}, functionFuzzer(sum).fuzz().getAllResults());
+    t.is({}, functionFuzzer(sum).numberArray().getAllResults());
 });

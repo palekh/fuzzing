@@ -1,1 +1,1 @@
-export {functionFuzzer, functionNumberArrayFuzzer} from "./fuzzer/functionFuzzer";
+export {functionFuzzer} from "./fuzzerFactory/functionFuzzerFactory";
