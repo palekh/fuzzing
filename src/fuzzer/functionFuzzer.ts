@@ -1,5 +1,5 @@
 import {AnyFunction} from "../_types/anyFunction.type";
-import {isStrangeResult} from "../check/strangeResults";
+import {isStrangeResult} from "./_helpers/strangeResults";
 import {Fuzzer, IFuzzer, IFuzzerParams} from "./fuzzer";
 
 export class FunctionFuzzer extends Fuzzer implements IFuzzer {

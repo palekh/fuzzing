@@ -1,5 +1,5 @@
 import {AnyFunction} from "../_types/anyFunction.type";
-import {cornerCaseNumberArray, nonConsequentNumberArray} from "../check/number/number";
+import {cornerCaseNumberArray, mathNumberArray, nonConsequentNumberArray} from "../check/number/number";
 import {getUndefined} from "../check/undefined/undefined";
 import {FunctionFuzzer} from "../fuzzer/functionFuzzer";
 import {IFuzzer} from "../fuzzer/fuzzer";
@@ -29,6 +29,7 @@ export class FunctionFuzzerFactory implements IFunctionFuzzerFactory {
             [
                 getUndefined(),
                 ...cornerCaseNumberArray(),
+                ...mathNumberArray(),
             ],
         );
     }
@@ -40,6 +41,7 @@ export class FunctionFuzzerFactory implements IFunctionFuzzerFactory {
                 getUndefined(),
                 nonConsequentNumberArray(),
                 cornerCaseNumberArray(),
+                mathNumberArray(),
             ],
         );
     }
@@ -52,6 +54,8 @@ export class FunctionFuzzerFactory implements IFunctionFuzzerFactory {
                 nonConsequentNumberArray(),
                 cornerCaseNumberArray(),
                 ...cornerCaseNumberArray(),
+                mathNumberArray(),
+                ...mathNumberArray(),
             ],
         );
     }

@@ -11,6 +11,19 @@ export function cornerCaseNumberArray(): number[] {
     ];
 }
 
+export function mathNumberArray(): number[] {
+    return [
+        Math.E,
+        Math.PI,
+        Math.LN2,
+        Math.LN10,
+        Math.LOG2E,
+        Math.LOG10E,
+        Math.SQRT1_2,
+        Math.SQRT2,
+    ];
+}
+
 export function nonConsequentNumberArray(): number[] {
     const arr = [];
     arr[13] = 13;

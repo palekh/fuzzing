@@ -7,9 +7,7 @@ test("strangeResults should contain expected values", (t) => {
     t.deepEqual(strangeResults, [
         NaN,
         undefined,
-        null,
-        Number.POSITIVE_INFINITY,
-        Number.NEGATIVE_INFINITY,
+        null
     ]);
 });
 

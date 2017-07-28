@@ -3,8 +3,6 @@ export function getStrangeResults() {
         NaN,
         undefined,
         null,
-        Number.POSITIVE_INFINITY,
-        Number.NEGATIVE_INFINITY,
     ];
 }
 
