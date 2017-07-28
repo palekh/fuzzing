@@ -1,6 +1,6 @@
 export function getStrangeResults() {
     return [
-        NaN,
+        Number.NaN,
         undefined,
         null,
     ];

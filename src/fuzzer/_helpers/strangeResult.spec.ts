@@ -5,9 +5,9 @@ test("strangeResults should contain expected values", (t) => {
     const strangeResults = getStrangeResults();
 
     t.deepEqual(strangeResults, [
-        NaN,
+        Number.NaN,
         undefined,
-        null
+        null,
     ]);
 });
 
