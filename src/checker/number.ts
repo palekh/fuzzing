@@ -1,3 +1,5 @@
+import {nonConsequentArray} from "./array";
+
 export function cornerCaseNumberArray(): number[] {
     return [
         0,
@@ -25,8 +27,5 @@ export function mathNumberArray(): number[] {
 }
 
 export function nonConsequentNumberArray(): number[] {
-    const arr = [];
-    arr[13] = 13;
-
-    return arr;
+    return nonConsequentArray(13);
 }

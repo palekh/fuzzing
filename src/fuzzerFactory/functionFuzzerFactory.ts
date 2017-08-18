@@ -1,5 +1,5 @@
 import {cornerCaseNumberArray, mathNumberArray, nonConsequentNumberArray} from "../checker/number";
-import {getUndefined} from "../checker/undefined";
+import {cornerCaseStringArray, nonConsequentStringArray} from "../checker/string";
 import {FunctionFuzzer} from "../fuzzer/functionFuzzer";
 import {IFuzzer} from "../fuzzer/fuzzer";
 import {AnyFunction} from "../types/anyFunction.type";
@@ -8,6 +8,10 @@ export interface IFunctionFuzzerFactory {
     number(): IFuzzer;
 
     numberArray(): IFuzzer;
+
+    string(): IFuzzer;
+
+    stringArray(): IFuzzer;
 
     all(): IFuzzer;
 }
@@ -27,7 +31,6 @@ export class FunctionFuzzerFactory implements IFunctionFuzzerFactory {
         return FunctionFuzzer.create(
             this.func,
             [
-                getUndefined(),
                 ...cornerCaseNumberArray(),
                 ...mathNumberArray(),
             ],
@@ -38,10 +41,28 @@ export class FunctionFuzzerFactory implements IFunctionFuzzerFactory {
         return FunctionFuzzer.create(
             this.func,
             [
-                getUndefined(),
                 nonConsequentNumberArray(),
                 cornerCaseNumberArray(),
                 mathNumberArray(),
+            ],
+        );
+    }
+
+    public string(): IFuzzer {
+        return FunctionFuzzer.create(
+            this.func,
+            [
+                ...cornerCaseStringArray(),
+            ],
+        );
+    }
+
+    public stringArray(): IFuzzer {
+        return FunctionFuzzer.create(
+            this.func,
+            [
+                cornerCaseStringArray(),
+                nonConsequentStringArray(),
             ],
         );
     }
@@ -50,12 +71,14 @@ export class FunctionFuzzerFactory implements IFunctionFuzzerFactory {
         return FunctionFuzzer.create(
             this.func,
             [
-                getUndefined(),
                 nonConsequentNumberArray(),
                 cornerCaseNumberArray(),
                 ...cornerCaseNumberArray(),
                 mathNumberArray(),
                 ...mathNumberArray(),
+                cornerCaseStringArray(),
+                ...cornerCaseStringArray(),
+                nonConsequentStringArray(),
             ],
         );
     }

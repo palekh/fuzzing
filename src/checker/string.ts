@@ -1,3 +1,5 @@
+import {nonConsequentArray} from "./array";
+
 export function cornerCaseStringArray(): string[] {
     return [
         "",
@@ -13,8 +15,5 @@ export function cornerCaseStringArray(): string[] {
 }
 
 export function nonConsequentStringArray(): string[] {
-    const arr = [];
-    arr[13] = "string";
-
-    return arr;
+    return nonConsequentArray("string");
 }

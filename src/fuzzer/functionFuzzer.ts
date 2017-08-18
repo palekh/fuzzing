@@ -1,3 +1,5 @@
+import {getNull} from "../checker/null";
+import {getUndefined} from "../checker/undefined";
 import {AnyFunction} from "../types/anyFunction.type";
 import {isStrangeResult} from "./_helpers/strangeResults";
 import {Fuzzer, IFuzzer, IFuzzerParams} from "./fuzzer";
@@ -13,7 +15,11 @@ export class FunctionFuzzer extends Fuzzer implements IFuzzer {
     }
 
     public static create(func: AnyFunction, params: IFuzzerParams): FunctionFuzzer {
-        return new FunctionFuzzer(func, params);
+        return new FunctionFuzzer(func, [
+            getUndefined(),
+            getNull(),
+            ...params,
+        ]);
     }
 
     public fuzz(): Fuzzer {

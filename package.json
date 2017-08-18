@@ -1,6 +1,6 @@
 {
   "name": "fuzzing",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Tool set for fuzzing testing.",
   "repository": "https://github.com/usehotkey/fuzzing.git",
   "author": "Igor Golopolosov<igolopolosov@gmail.com>",
