@@ -1,5 +1,5 @@
-import {IResultTyped} from "../_types/result";
 import {Collector, ICollector} from "../collector/collector";
+import {IResultTyped} from "../types/result";
 
 export interface IFuzzer {
     fuzz(): IFuzzer;

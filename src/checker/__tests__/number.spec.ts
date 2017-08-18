@@ -1,5 +1,5 @@
 import {test} from "ava";
-import {cornerCaseNumberArray, mathNumberArray, nonConsequentNumberArray} from "./number";
+import {cornerCaseNumberArray, mathNumberArray, nonConsequentNumberArray} from "../number";
 
 test("cornerCaseNumbers should contain correct array", (t) => {
     const numbers = cornerCaseNumberArray();

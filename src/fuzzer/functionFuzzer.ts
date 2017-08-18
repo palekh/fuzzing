@@ -1,4 +1,4 @@
-import {AnyFunction} from "../_types/anyFunction.type";
+import {AnyFunction} from "../types/anyFunction.type";
 import {isStrangeResult} from "./_helpers/strangeResults";
 import {Fuzzer, IFuzzer, IFuzzerParams} from "./fuzzer";
 

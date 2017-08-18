@@ -1,8 +1,8 @@
-import {AnyFunction} from "../_types/anyFunction.type";
-import {cornerCaseNumberArray, mathNumberArray, nonConsequentNumberArray} from "../check/number/number";
-import {getUndefined} from "../check/undefined/undefined";
+import {cornerCaseNumberArray, mathNumberArray, nonConsequentNumberArray} from "../checker/number";
+import {getUndefined} from "../checker/undefined";
 import {FunctionFuzzer} from "../fuzzer/functionFuzzer";
 import {IFuzzer} from "../fuzzer/fuzzer";
+import {AnyFunction} from "../types/anyFunction.type";
 
 export interface IFunctionFuzzerFactory {
     number(): IFuzzer;
