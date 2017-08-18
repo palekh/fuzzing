@@ -1,3 +1,4 @@
+import {cornerCaseBooleanArray, nonConsequentBooleanArray} from "../checker/boolean";
 import {cornerCaseNumberArray, mathNumberArray, nonConsequentNumberArray} from "../checker/number";
 import {cornerCaseStringArray, nonConsequentStringArray} from "../checker/string";
 import {FunctionFuzzer} from "../fuzzer/functionFuzzer";
@@ -67,6 +68,25 @@ export class FunctionFuzzerFactory implements IFunctionFuzzerFactory {
         );
     }
 
+    public boolean(): IFuzzer {
+        return FunctionFuzzer.create(
+            this.func,
+            [
+                ...cornerCaseBooleanArray(),
+            ],
+        );
+    }
+
+    public booleanArray(): IFuzzer {
+        return FunctionFuzzer.create(
+            this.func,
+            [
+                cornerCaseBooleanArray(),
+                nonConsequentBooleanArray(),
+            ],
+        );
+    }
+
     public all(): IFuzzer {
         return FunctionFuzzer.create(
             this.func,
@@ -79,6 +99,9 @@ export class FunctionFuzzerFactory implements IFunctionFuzzerFactory {
                 cornerCaseStringArray(),
                 ...cornerCaseStringArray(),
                 nonConsequentStringArray(),
+                cornerCaseBooleanArray(),
+                ...cornerCaseBooleanArray(),
+                nonConsequentBooleanArray(),
             ],
         );
     }

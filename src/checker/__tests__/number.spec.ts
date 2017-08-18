@@ -1,5 +1,5 @@
 import {test} from "ava";
-import {cornerCaseNumberArray, mathNumberArray, nonConsequentNumberArray} from "../number";
+import {cornerCaseNumberArray, mathNumberArray} from "../number";
 
 test("cornerCaseNumbers should contain correct array", (t) => {
     const numbers = cornerCaseNumberArray();
@@ -29,14 +29,4 @@ test("mathNumberArray should contain correct array", (t) => {
         Math.SQRT1_2,
         Math.SQRT2,
     ]);
-});
-
-test("nonConsequentNumberArray should contain undefined under set value", (t) => {
-    const numbers = nonConsequentNumberArray();
-
-    for (let i = 0; i < 13; i += 1) {
-        t.is(numbers[i], undefined);
-    }
-
-    t.is(numbers[13], 13);
 });
