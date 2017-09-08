@@ -18,4 +18,10 @@ describe("strangeResults", () => {
             expect(isStrangeResult(strangeResultsArray[i])).toBe(true);
         }
     });
+
+    test("isStrangeResult should return false for normal values", () => {
+        expect(isStrangeResult(1)).toBe(false);
+        expect(isStrangeResult("")).toBe(false);
+        expect(isStrangeResult([])).toBe(false);
+    });
 });
