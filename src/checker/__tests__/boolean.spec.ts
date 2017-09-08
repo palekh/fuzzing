@@ -1,10 +1,19 @@
-import {cornerCaseBooleanArray} from "../boolean";
+import {cornerCaseBooleanArray, nonConsequentBooleanArray} from "../boolean";
+import {testNonConsequentArray} from "./array.spec";
 
-test("cornerCaseBooleanArray should contain correct array", () => {
-    const booleans = cornerCaseBooleanArray();
+describe("boolean checker", () => {
+    testNonConsequentArray({
+        expected: false,
+        func: nonConsequentBooleanArray,
+        message: "nonConsequentBooleanArray should contain undefined under set value",
+    });
 
-    expect(booleans).toEqual([
-        false,
-        true,
-    ]);
+    test("cornerCaseBooleanArray should contain correct array", () => {
+        const booleans = cornerCaseBooleanArray();
+
+        expect(booleans).toEqual([
+            false,
+            true,
+        ]);
+    });
 });
