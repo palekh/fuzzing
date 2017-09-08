@@ -1,1 +1,1 @@
-export {functionFuzzer} from "./fuzzerFactory/functionFuzzerFactory";
+export {functionFuzzer} from "./fuzzerFactory/FunctionFuzzerFactory";
