@@ -4,13 +4,13 @@ import {IResultTyped} from "../types/result.type";
 export interface IFuzzer {
     fuzz(): IFuzzer;
 
-    getResults(): IResultTyped[];
+    results(): IResultTyped[];
 
-    getErrors(): IResultTyped[];
+    errors(): IResultTyped[];
 
-    getWarnings(): IResultTyped[];
+    warnings(): IResultTyped[];
 
-    getAllResults(): IResultTyped[];
+    all(): IResultTyped[];
 }
 
 export type IFuzzerParams = any[];
@@ -25,19 +25,19 @@ export abstract class Fuzzer implements IFuzzer {
 
     public abstract fuzz(): Fuzzer;
 
-    public getResults(): IResultTyped[] {
+    public results(): IResultTyped[] {
         return this.collector.getResults();
     }
 
-    public getErrors(): IResultTyped[] {
+    public errors(): IResultTyped[] {
         return this.collector.getErrors();
     }
 
-    public getWarnings(): IResultTyped[] {
+    public warnings(): IResultTyped[] {
         return this.collector.getWarnings();
     }
 
-    public getAllResults(): IResultTyped[] {
+    public all(): IResultTyped[] {
         return this.collector.getAllResults();
     }
 

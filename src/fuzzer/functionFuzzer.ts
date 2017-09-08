@@ -22,7 +22,7 @@ export class FunctionFuzzer extends Fuzzer implements IFuzzer {
         ]);
     }
 
-    public fuzz(): Fuzzer {
+    public fuzz(): this {
         for (let i = 0; i < this.params.length; i += 1) {
             const param = this.params[i];
             this.fuzzIteration(param);
