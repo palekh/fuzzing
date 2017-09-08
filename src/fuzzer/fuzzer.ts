@@ -1,10 +1,10 @@
-import {Collector, ICollector} from "../collector/collector";
+import {Collector, ICollector} from "../collector/Collector";
 import {IResultTyped} from "../types/result.type";
 
 export interface IFuzzer {
     fuzz(): IFuzzer;
 
-    results(): IResultTyped[];
+    successes(): IResultTyped[];
 
     errors(): IResultTyped[];
 
@@ -25,8 +25,8 @@ export abstract class Fuzzer implements IFuzzer {
 
     public abstract fuzz(): Fuzzer;
 
-    public results(): IResultTyped[] {
-        return this.collector.getResults();
+    public successes(): IResultTyped[] {
+        return this.collector.getSuccesses();
     }
 
     public errors(): IResultTyped[] {
@@ -38,7 +38,7 @@ export abstract class Fuzzer implements IFuzzer {
     }
 
     public all(): IResultTyped[] {
-        return this.collector.getAllResults();
+        return this.collector.getAll();
     }
 
     protected abstract fuzzIteration(args: any): void;

@@ -1,9 +1,9 @@
 import {IResult, IResultTyped, ResultType} from "../types/result.type";
 
 export interface ICollector {
-    addResult(result: IResult): void;
+    addSuccess(result: IResult): void;
 
-    getResults(): IResultTyped[];
+    getSuccesses(): IResultTyped[];
 
     addWarning(warning: IResult): void;
 
@@ -13,7 +13,7 @@ export interface ICollector {
 
     getErrors(): IResultTyped[];
 
-    getAllResults(): IResultTyped[];
+    getAll(): IResultTyped[];
 }
 
 export class Collector implements ICollector {
@@ -29,17 +29,17 @@ export class Collector implements ICollector {
         return new Collector();
     }
 
-    public addResult(result: IResult): void {
+    public addSuccess(result: IResult): void {
         this.results = [
             ...this.results,
             {
                 ...result,
-                type: ResultType.Result,
+                type: ResultType.Success,
             },
         ];
     }
 
-    public getResults(): IResultTyped[] {
+    public getSuccesses(): IResultTyped[] {
         return this.results;
     }
 
@@ -71,9 +71,9 @@ export class Collector implements ICollector {
         return this.errors;
     }
 
-    public getAllResults(): IResultTyped[] {
+    public getAll(): IResultTyped[] {
         return [
-            ...this.getResults(),
+            ...this.getSuccesses(),
             ...this.getWarnings(),
             ...this.getErrors(),
         ];

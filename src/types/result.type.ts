@@ -10,7 +10,7 @@ export interface IResult {
 }
 
 export enum ResultType {
-    Result = "result",
+    Success = "success",
     Warning = "warning",
     Error = "error",
 }

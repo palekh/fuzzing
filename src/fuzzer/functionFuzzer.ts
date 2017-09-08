@@ -42,7 +42,7 @@ export class FunctionFuzzer extends Fuzzer implements IFuzzer {
                     result,
                 });
             } else {
-                this.collector.addResult({
+                this.collector.addSuccess({
                     description: `Normal result.`,
                     param,
                     result,
