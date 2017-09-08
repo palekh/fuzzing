@@ -6,22 +6,35 @@
   "author": "Igor Golopolosov<igolopolosov@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "compile": "tsc",
-    "compilew": "tsc --watch",
-    "test": "ava --verbose",
-    "testw": "ava --watch --verbose",
-    "precommit": "npm run test",
-    "start": "npm run compilew"
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "precommit": "npm run test"
   },
   "devDependencies": {
+    "@types/jest": "^20.0.8",
     "@types/node": "8.0.16",
-    "ava": "0.21.0",
+    "jest": "^21.0.2",
+    "ts-jest": "^21.0.0",
     "tslint": "5.5.0",
     "typescript": "2.4.2"
   },
-  "ava": {
-    "files": [
-      "lib/**/*.spec.js"
+  "jest": {
+    "coverageReporters": [
+      "html"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(spec))\\.(tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
     ]
   }
 }

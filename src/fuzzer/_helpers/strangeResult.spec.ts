@@ -1,20 +1,19 @@
-import {test} from "ava";
 import {getStrangeResults, isStrangeResult} from "./strangeResults";
 
-test("strangeResults should contain expected values", (t) => {
+test("strangeResults should contain expected values", () => {
     const strangeResults = getStrangeResults();
 
-    t.deepEqual(strangeResults, [
+    expect(strangeResults).toEqual([
         Number.NaN,
         undefined,
         null,
     ]);
 });
 
-test("isStrangeResult should return true for values from strangeResults function", (t) => {
+test("isStrangeResult should return true for values from strangeResults function", () => {
     const strangeResultsArray = getStrangeResults();
 
     for (let i = 0; i < strangeResultsArray.length; i += 1) {
-        t.true(isStrangeResult(strangeResultsArray[i]));
+        expect(isStrangeResult(strangeResultsArray[i])).toBe(true);
     }
 });

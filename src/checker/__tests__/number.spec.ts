@@ -1,10 +1,9 @@
-import {test} from "ava";
 import {cornerCaseNumberArray, mathNumberArray} from "../number";
 
-test("cornerCaseNumbers should contain correct array", (t) => {
+test("cornerCaseNumbers should contain correct array", () => {
     const numbers = cornerCaseNumberArray();
 
-    t.deepEqual(numbers, [
+    expect(numbers).toEqual([
         0,
         1,
         -1,
@@ -16,10 +15,10 @@ test("cornerCaseNumbers should contain correct array", (t) => {
     ]);
 });
 
-test("mathNumberArray should contain correct array", (t) => {
+test("mathNumberArray should contain correct array", () => {
     const numbers = mathNumberArray();
 
-    t.deepEqual(numbers, [
+    expect(numbers).toEqual([
         Math.E,
         Math.PI,
         Math.LN2,

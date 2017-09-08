@@ -1,11 +1,10 @@
-import {test} from "ava";
 import {cornerCaseBooleanArray} from "../boolean";
 
-test("cornerCaseBooleanArray should contain correct array", (t) => {
+test("cornerCaseBooleanArray should contain correct array", () => {
     const booleans = cornerCaseBooleanArray();
 
-    t.deepEqual(booleans, [
-        true,
+    expect(booleans).toEqual([
         false,
+        true,
     ]);
 });

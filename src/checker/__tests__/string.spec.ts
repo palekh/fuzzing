@@ -1,10 +1,9 @@
-import {test} from "ava";
 import {cornerCaseStringArray} from "../string";
 
-test("cornerCaseStringArray should contain correct array", (t) => {
+test("cornerCaseStringArray should contain correct array", () => {
     const strings = cornerCaseStringArray();
 
-    t.deepEqual(strings, [
+    expect(strings).toEqual([
         "",
         "0",
         "1",

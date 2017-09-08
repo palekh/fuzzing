@@ -1,12 +1,11 @@
-import {test} from "ava";
 import {nonConsequentArray} from "../array";
 
-test("nonConsequentArray should contain undefined under set value", (t) => {
+test("nonConsequentArray should contain undefined under set value", () => {
     const arr = nonConsequentArray(1);
 
     for (let i = 0; i < 13; i += 1) {
-        t.is(arr[i], undefined);
+        expect(arr[i]).toBe(undefined);
     }
 
-    t.is(arr[13], 1);
+    expect(arr[13]).toBe(1);
 });

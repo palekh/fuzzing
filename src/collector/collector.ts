@@ -1,4 +1,4 @@
-import {IResult, IResultTyped, ResultType} from "../types/result";
+import {IResult, IResultTyped, ResultType} from "../types/result.type";
 
 export interface ICollector {
     addResult(result: IResult): void;
