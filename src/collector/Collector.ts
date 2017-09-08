@@ -16,59 +16,49 @@ export interface ICollector {
     getAll(): IResultTyped[];
 }
 
+interface ICollectorState {
+    errors: IResultTyped[];
+    successes: IResultTyped[];
+    warnings: IResultTyped[];
+}
+
 export class Collector implements ICollector {
-    private results: IResultTyped[] = [];
-    private errors: IResultTyped[] = [];
-    private warnings: IResultTyped[] = [];
+    private state: ICollectorState;
 
     private constructor() {
-        // empty
+        this.state = {
+            errors: [],
+            successes: [],
+            warnings: [],
+        };
     }
 
     public static create(): ICollector {
         return new Collector();
     }
 
-    public addSuccess(result: IResult): void {
-        this.results = [
-            ...this.results,
-            {
-                ...result,
-                type: ResultType.Success,
-            },
-        ];
+    public addSuccess(success: IResult): void {
+        this.add(success, "successes", ResultType.Success);
     }
 
     public getSuccesses(): IResultTyped[] {
-        return this.results;
+        return this.state.successes;
     }
 
     public addWarning(warning: IResult): void {
-        this.warnings = [
-            ...this.warnings,
-            {
-                ...warning,
-                type: ResultType.Warning,
-            },
-        ];
+        this.add(warning, "warnings", ResultType.Warning);
     }
 
     public getWarnings(): IResultTyped[] {
-        return this.warnings;
+        return this.state.warnings;
     }
 
     public addError(error: IResult): void {
-        this.errors = [
-            ...this.errors,
-            {
-                ...error,
-                type: ResultType.Error,
-            },
-        ];
+        this.add(error, "errors", ResultType.Error);
     }
 
     public getErrors(): IResultTyped[] {
-        return this.errors;
+        return this.state.errors;
     }
 
     public getAll(): IResultTyped[] {
@@ -76,6 +66,16 @@ export class Collector implements ICollector {
             ...this.getSuccesses(),
             ...this.getWarnings(),
             ...this.getErrors(),
+        ];
+    }
+
+    private add(result: IResult, stateKey: keyof ICollectorState, type: ResultType): void {
+        this.state[stateKey] = [
+            ...this.state[stateKey],
+            {
+                ...result,
+                type,
+            },
         ];
     }
 }
