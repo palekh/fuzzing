@@ -2,7 +2,7 @@ import {cornerCaseBooleanArray, nonConsequentBooleanArray} from "../checker/bool
 import {cornerCaseNumberArray, mathNumberArray, nonConsequentNumberArray} from "../checker/number";
 import {cornerCaseStringArray, nonConsequentStringArray} from "../checker/string";
 import {FunctionFuzzer} from "../fuzzer/functionFuzzer";
-import {IFuzzer} from "../fuzzer/fuzzer";
+import {IFuzzer, IFuzzerParams} from "../fuzzer/fuzzer";
 import {AnyFunction} from "../types/anyFunction.type";
 
 export interface IFunctionFuzzerFactory {
@@ -29,81 +29,64 @@ export class FunctionFuzzerFactory implements IFunctionFuzzerFactory {
     }
 
     public number(): IFuzzer {
-        return FunctionFuzzer.create(
-            this.func,
-            [
-                ...cornerCaseNumberArray(),
-                ...mathNumberArray(),
-            ],
-        );
+        return this.createFuzzer([
+            ...cornerCaseNumberArray(),
+            ...mathNumberArray(),
+        ]);
     }
 
     public numberArray(): IFuzzer {
-        return FunctionFuzzer.create(
-            this.func,
-            [
-                nonConsequentNumberArray(),
-                cornerCaseNumberArray(),
-                mathNumberArray(),
-            ],
-        );
+        return this.createFuzzer([
+            nonConsequentNumberArray(),
+            cornerCaseNumberArray(),
+            mathNumberArray(),
+        ]);
     }
 
     public string(): IFuzzer {
-        return FunctionFuzzer.create(
-            this.func,
-            [
-                ...cornerCaseStringArray(),
-            ],
-        );
+        return this.createFuzzer([
+            ...cornerCaseStringArray(),
+        ]);
     }
 
     public stringArray(): IFuzzer {
-        return FunctionFuzzer.create(
-            this.func,
-            [
-                cornerCaseStringArray(),
-                nonConsequentStringArray(),
-            ],
-        );
+        return this.createFuzzer([
+            cornerCaseStringArray(),
+            nonConsequentStringArray(),
+        ]);
     }
 
     public boolean(): IFuzzer {
-        return FunctionFuzzer.create(
-            this.func,
-            [
-                ...cornerCaseBooleanArray(),
-            ],
-        );
+        return this.createFuzzer([
+            ...cornerCaseBooleanArray(),
+        ]);
     }
 
     public booleanArray(): IFuzzer {
-        return FunctionFuzzer.create(
-            this.func,
-            [
-                cornerCaseBooleanArray(),
-                nonConsequentBooleanArray(),
-            ],
-        );
+        return this.createFuzzer([
+            cornerCaseBooleanArray(),
+            nonConsequentBooleanArray(),
+        ]);
     }
 
     public all(): IFuzzer {
-        return FunctionFuzzer.create(
-            this.func,
-            [
-                nonConsequentNumberArray(),
-                cornerCaseNumberArray(),
-                ...cornerCaseNumberArray(),
-                mathNumberArray(),
-                ...mathNumberArray(),
-                cornerCaseStringArray(),
-                ...cornerCaseStringArray(),
-                nonConsequentStringArray(),
-                cornerCaseBooleanArray(),
-                ...cornerCaseBooleanArray(),
-                nonConsequentBooleanArray(),
-            ],
-        );
+        return this.createFuzzer([
+            nonConsequentNumberArray(),
+            cornerCaseNumberArray(),
+            ...cornerCaseNumberArray(),
+            mathNumberArray(),
+            ...mathNumberArray(),
+            cornerCaseStringArray(),
+            ...cornerCaseStringArray(),
+            nonConsequentStringArray(),
+            cornerCaseBooleanArray(),
+            ...cornerCaseBooleanArray(),
+            nonConsequentBooleanArray(),
+        ]);
+    }
+
+    private createFuzzer(input: IFuzzerParams): IFuzzer {
+        return FunctionFuzzer.create(this.func, input);
     }
 }
 
