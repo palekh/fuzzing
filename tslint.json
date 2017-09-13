@@ -6,6 +6,10 @@
   "jsRules": {},
   "rules": {
     "prefer-for-of": false,
+    "arrow-parens": [
+      true,
+      "ban-single-arg-parens"
+    ],
     "member-ordering": [
       true,
       {

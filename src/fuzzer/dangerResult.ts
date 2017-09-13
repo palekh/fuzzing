@@ -1,4 +1,4 @@
-export function getStrangeResults() {
+export function getDangerResults() {
     return [
         Number.NaN,
         undefined,
@@ -6,8 +6,8 @@ export function getStrangeResults() {
     ];
 }
 
-export function isStrangeResult(result: any): boolean {
-    const results = getStrangeResults();
+export function isDangerResult(result: any): boolean {
+    const results = getDangerResults();
 
     if (isNaN(result)) {
         return true;

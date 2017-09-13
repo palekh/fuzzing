@@ -1,8 +1,8 @@
 import {cornerCaseBooleanArray, nonConsequentBooleanArray} from "../checker/boolean";
 import {cornerCaseNumberArray, mathNumberArray, nonConsequentNumberArray} from "../checker/number";
 import {cornerCaseStringArray, nonConsequentStringArray} from "../checker/string";
-import {FunctionFuzzer} from "../fuzzer/functionFuzzer";
-import {IFuzzer, IFuzzerParams} from "../fuzzer/fuzzer";
+import {FunctionFuzzer} from "../fuzzer/FunctionFuzzer";
+import {IFuzzer, IFuzzerParams} from "../fuzzer/Fuzzer";
 import {AnyFunction} from "../types/anyFunction.type";
 
 export interface IFunctionFuzzerFactory {

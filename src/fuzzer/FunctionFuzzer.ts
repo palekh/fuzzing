@@ -1,8 +1,8 @@
 import {getNull} from "../checker/null";
 import {getUndefined} from "../checker/undefined";
 import {AnyFunction} from "../types/anyFunction.type";
-import {Fuzzer, IFuzzer, IFuzzerParams} from "./fuzzer";
-import {isStrangeResult} from "./strangeResults";
+import {isDangerResult} from "./dangerResult";
+import {Fuzzer, IFuzzer, IFuzzerParams} from "./Fuzzer";
 
 export class FunctionFuzzer extends Fuzzer implements IFuzzer {
     protected readonly params: IFuzzerParams;
@@ -35,7 +35,7 @@ export class FunctionFuzzer extends Fuzzer implements IFuzzer {
         try {
             const result = this.func(param);
 
-            if (isStrangeResult(result)) {
+            if (isDangerResult(result)) {
                 this.collector.addWarning({
                     description: `Danger result: ${result}. Check function implementation`,
                     param,

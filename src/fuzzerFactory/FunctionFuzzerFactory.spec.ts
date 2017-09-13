@@ -1,4 +1,4 @@
-import {FunctionFuzzer} from "../fuzzer/functionFuzzer";
+import {FunctionFuzzer} from "../fuzzer/FunctionFuzzer";
 import {sum} from "./__mocks__/sum";
 import {functionFuzzer, FunctionFuzzerFactory} from "./FunctionFuzzerFactory";
 
@@ -18,7 +18,7 @@ describe("FunctionFuzzerFactory", () => {
             "boolean", "booleanArray", "number", "numberArray", "string", "stringArray", "all",
         ];
 
-        methodNames.forEach((method) => {
+        methodNames.forEach(method => {
             expect((sumFuzzerFactory as any)[method]() instanceof FunctionFuzzer).toBe(true);
             expect(() => (sumFuzzerFactory as any)[method]()).not.toThrow();
         });
