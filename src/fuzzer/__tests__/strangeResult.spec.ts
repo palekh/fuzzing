@@ -1,4 +1,4 @@
-import {getStrangeResults, isStrangeResult} from "./strangeResults";
+import {getStrangeResults, isStrangeResult} from "../strangeResults";
 
 describe("strangeResults", () => {
     test("strangeResults should contain expected values", () => {
