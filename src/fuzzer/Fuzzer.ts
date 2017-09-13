@@ -20,7 +20,7 @@ export abstract class Fuzzer implements IFuzzer {
     protected collector: ICollector = Collector.create();
 
     protected constructor() {
-        // empty
+        // Empty
     }
 
     public abstract fuzz(): Fuzzer;

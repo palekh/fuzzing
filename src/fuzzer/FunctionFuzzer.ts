@@ -43,14 +43,14 @@ export class FunctionFuzzer extends Fuzzer implements IFuzzer {
                 });
             } else {
                 this.collector.addSuccess({
-                    description: `Normal result.`,
+                    description: "Normal result.",
                     param,
                     result,
                 });
             }
         } catch (error) {
             this.collector.addError({
-                description: `Function execution failed.`,
+                description: "Function execution failed.",
                 error,
                 param,
             });

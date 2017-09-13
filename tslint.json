@@ -1,14 +1,16 @@
 {
   "defaultSeverity": "error",
   "extends": [
-    "tslint:latest"
+    "tslint:all"
   ],
-  "jsRules": {},
   "rules": {
-    "prefer-for-of": false,
     "arrow-parens": [
       true,
       "ban-single-arg-parens"
+    ],
+    "linebreak-style": [
+      true,
+      "CRLF"
     ],
     "member-ordering": [
       true,
@@ -31,7 +33,28 @@
           "private-instance-method"
         ]
       }
+    ],
+    "no-any": false,
+    "no-null-keyword": false,
+    "no-magic-numbers": false,
+    "only-arrow-functions": [
+      true,
+      "allow-declarations",
+      "allow-named-functions"
+    ],
+    "prefer-for-of": false,
+    "typedef": false,
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-separator",
+      "check-rest-spread",
+      "check-type",
+      "check-typecast",
+      "check-type-operator",
+      "check-preblock"
     ]
-  },
-  "rulesDirectory": []
+  }
 }
