@@ -1,14 +1,14 @@
 {
   "name": "fuzzing",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "Tool set for fuzzing testing.",
   "repository": "https://github.com/usehotkey/fuzzing.git",
   "author": "Igor Golopolosov<igolopolosov@gmail.com>",
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "tslint": "tslint",
-    "lint": "npm run tslint -c ./tslint.json src/**/*.ts",
+    "tslint": "tslint -p . --type-check -c \"./tslint.json\" \"src/**/*.ts\"",
+    "lint": "npm run tslint",
     "coverage": "jest --coverage",
     "precommit": "npm test & npm run lint",
     "prepush": "tsc --noEmit & npm test & npm run lint",

@@ -25,7 +25,9 @@
     "typeRoots": [
       "node_modules/@types"
     ],
-
-    "sourceMap": false
+    "sourceMap": false,
+    "lib": [
+      "es6"
+    ]
   }
 }
