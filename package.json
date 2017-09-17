@@ -1,7 +1,7 @@
 {
   "name": "fuzzing",
   "version": "0.8.2",
-  "description": "Tool set for fuzzing testing.",
+  "description": "Tool set for fuzz testing 🐰",
   "repository": "https://github.com/usehotkey/fuzzing.git",
   "author": "Igor Golopolosov<igolopolosov@gmail.com>",
   "license": "MIT",
@@ -15,10 +15,10 @@
     "start": "tsc --watch --noEmit"
   },
   "devDependencies": {
-    "@types/jest": "^20.0.8",
+    "@types/jest": "20.0.8",
     "@types/node": "8.0.28",
-    "jest": "^21.0.2",
-    "ts-jest": "^21.0.0",
+    "jest": "21.1.0",
+    "ts-jest": "21.0.1",
     "tslint": "5.7.0",
     "typescript": "2.5.2"
   },

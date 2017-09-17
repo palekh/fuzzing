@@ -8,6 +8,11 @@
       true,
       "ban-single-arg-parens"
     ],
+    "completed-docs": false,
+    "comment-format": [
+      true,
+      "check-space"
+    ],
     "linebreak-style": [
       true,
       "CRLF"
@@ -37,6 +42,8 @@
     "no-any": false,
     "no-null-keyword": false,
     "no-magic-numbers": false,
+    "no-unsafe-any": false,
+    "no-unused-variable": false,
     "only-arrow-functions": [
       true,
       "allow-declarations",
