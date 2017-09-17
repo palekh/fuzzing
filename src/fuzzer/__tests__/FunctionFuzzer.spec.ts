@@ -1,4 +1,4 @@
-import {getValues} from "../__mocks__/getValues";
+import {getValues} from "../__mocks__/getValues.mock";
 import {FunctionFuzzer} from "../FunctionFuzzer";
 
 describe("FunctionFuzzer", () => {

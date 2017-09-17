@@ -1,5 +1,5 @@
 import {FunctionFuzzer} from "../fuzzer/FunctionFuzzer";
-import {sum} from "./__mocks__/sum";
+import {sum} from "./__mocks__/sum.mock";
 import {functionFuzzer, FunctionFuzzerFactory} from "./FunctionFuzzerFactory";
 
 describe("FunctionFuzzerFactory", () => {

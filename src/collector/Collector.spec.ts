@@ -1,5 +1,5 @@
 import {ResultType} from "../types/result.type";
-import {getResultTypedMock, resultMock} from "./__mocks__/result";
+import {getResultTypedMock, resultMock} from "./__mocks__/result.mock";
 import {Collector} from "./Collector";
 
 describe("Collector", () => {

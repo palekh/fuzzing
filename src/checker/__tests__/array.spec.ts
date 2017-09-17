@@ -8,7 +8,7 @@ describe("array checker", () => {
     });
 });
 
-interface ITestNonConsequentArrayParams<T> {
+export interface ITestNonConsequentArrayParams<T> {
     expected: T;
     message: string;
 
