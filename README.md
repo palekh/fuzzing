@@ -26,7 +26,7 @@ console.log(errors);
     {
        description: 'Function execution failed.',
        error: ..., // stack trace
-       param: undefined,
+       input: undefined,
        type: 'error'
     },
     ...
