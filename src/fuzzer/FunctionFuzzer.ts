@@ -24,27 +24,27 @@ export class FunctionFuzzer extends Fuzzer implements IFuzzer {
 
     public fuzz(): this {
         for (let i = 0; i < this.params.length; i += 1) {
-            const param = this.params[i];
-            this.fuzzIteration(param);
+            const parameter = this.params[i];
+            this.fuzzIteration(parameter);
         }
 
         return this;
     }
 
-    protected fuzzIteration(param: any): void {
+    protected fuzzIteration(input: any): void {
         try {
-            const result = this.func(param);
+            const result = this.func(input);
 
             if (isDangerResult(result)) {
                 this.collector.addWarning({
                     description: `Danger result: ${result}. Check function implementation`,
-                    param,
+                    input,
                     result,
                 });
             } else {
                 this.collector.addSuccess({
                     description: "Normal result.",
-                    param,
+                    input,
                     result,
                 });
             }
@@ -52,7 +52,7 @@ export class FunctionFuzzer extends Fuzzer implements IFuzzer {
             this.collector.addError({
                 description: "Function execution failed.",
                 error,
-                param,
+                input,
             });
         }
     }

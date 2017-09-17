@@ -1,6 +1,6 @@
 export interface IResult {
     description: string;
-    param: any;
+    input: any;
     result?: any;
     error?: Error;
 }
