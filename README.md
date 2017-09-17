@@ -11,7 +11,7 @@ To fuzzing choose three things:
 
 Then you can started:
 
-```
+```javascript
 function sum(arr) {
    return arr.reduce((accumulator, item) => accumulator + item, 0);
 }
@@ -48,7 +48,7 @@ You can use a following sets of parameters:
 
 Also you can combine them with `all` operator.
 
-```
+```javascript
 functionFuzzer(sum).all();
 ```
 
