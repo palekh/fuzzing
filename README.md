@@ -1,7 +1,7 @@
 # Fuzzing · 🐰
 Fuzzing is tool set for [fuzz testing](https://en.wikipedia.org/wiki/Fuzzing).
 
-Useful for a stress testing your functions with a different 
+Useful for a stress testing your functions with a different input parameters.
 
 # Examples
 To fuzzing choose three things:
@@ -53,6 +53,6 @@ functionFuzzer(sum).all();
 ```
 
 # Community
-Try it now and give a feedback. 
+Try it now and give a feedback.
 
 We are ready to pull requests!
