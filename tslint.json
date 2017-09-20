@@ -13,10 +13,7 @@
       true,
       "check-space"
     ],
-    "linebreak-style": [
-      true,
-      "CRLF"
-    ],
+    "linebreak-style": false,
     "member-ordering": [
       true,
       {
