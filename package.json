@@ -8,9 +8,11 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "jest",
+    "jtest": "jest",
+    "build": "tsc --noEmit",
     "tslint": "tslint -p . --type-check -c \"./tslint.json\" \"src/**/*.ts\"",
     "lint": "npm run tslint",
+    "test": "build && lint && jtest",
     "coverage": "jest --coverage",
     "precommit": "npm test & npm run lint",
     "prepublishOnly": "tsc -d -p ./",
