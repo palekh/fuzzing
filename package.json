@@ -12,7 +12,7 @@
     "build": "tsc --noEmit",
     "tslint": "tslint -p . --type-check -c \"./tslint.json\" \"src/**/*.ts\"",
     "lint": "npm run tslint",
-    "test": "build && lint && jtest",
+    "test": "npm run build && npm run lint && npm run jtest",
     "coverage": "jest --coverage",
     "precommit": "npm test & npm run lint",
     "prepublishOnly": "tsc -d -p ./",
