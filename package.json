@@ -10,12 +10,12 @@
   "scripts": {
     "jtest": "jest",
     "build": "tsc --noEmit",
-    "tslint": "tslint -p . --type-check -c \"./tslint.json\" \"src/**/*.ts\"",
+    "tslint": "tslint -p . --type-check -c \"./tslint.json\" \"./src/**/*.ts\"",
     "lint": "npm run tslint",
     "test": "npm run build && npm run lint && npm run jtest",
     "coverage": "jest --coverage",
     "precommit": "npm test & npm run lint",
-    "prepublishOnly": "tsc -d -p ./",
+    "prepublishOnly": "tsc -d -p \"./tsconfig.build.json\"",
     "prepush": "tsc --noEmit & npm test & npm run lint",
     "start": "tsc --watch --noEmit"
   },

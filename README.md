@@ -1,3 +1,4 @@
+[![Travis build](https://img.shields.io/travis/usehotkey/fuzzing.svg?style=flat-square)](https://travis-ci.org/usehotkey/fuzzing)
 [![NPM Package](https://img.shields.io/npm/v/fuzzing.svg?style=flat-square)](https://www.npmjs.com/package/fuzzing)
 # Fuzzing · 🐰
 Fuzzing is tool set for [fuzz testing](https://en.wikipedia.org/wiki/Fuzzing).
