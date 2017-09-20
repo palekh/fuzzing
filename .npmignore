@@ -1,1 +1,3 @@
-src/
+**/*
+!package.json
+!dist/**/*
