@@ -1,4 +1,4 @@
-[![NPM Package](https://img.shields.io/npm/fuzzing/npm.svg)](https://www.npmjs.com/package/fuzzing)
+[![NPM Package](https://img.shields.io/npm/v/fuzzing.svg)](https://www.npmjs.com/package/fuzzing)
 # Fuzzing · 🐰
 Fuzzing is tool set for [fuzz testing](https://en.wikipedia.org/wiki/Fuzzing).
 
