@@ -8,15 +8,15 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "jtest": "jest",
-    "build": "tsc --noEmit",
-    "tslint": "tslint -p . --type-check -c \"./tslint.json\" \"./src/**/*.ts\"",
-    "lint": "npm run tslint",
-    "test": "npm run build && npm run lint && npm run jtest",
-    "coverage": "jest --coverage",
-    "precommit": "npm test & npm run lint",
+    "dev:lint": "tslint -p . --type-check -c \"./tslint.json\" \"./src/**/*.ts\"",
+    "ci:build": "tsc --noEmit",
+    "ci:lint": "npm run dev:lint",
+    "ci:test": "jest",
+    "ci:coverage": "jest --coverage",
+    "test": "npm run ci:build && npm run ci:lint && npm run ci:test",
+    "precommit": "npm test",
     "prepublishOnly": "tsc -d -p \"./tsconfig.build.json\"",
-    "prepush": "tsc --noEmit & npm test & npm run lint",
+    "prepush": "npm test",
     "start": "tsc --watch --noEmit"
   },
   "devDependencies": {
