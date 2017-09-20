@@ -1,10 +1,18 @@
+[![NPM Package](https://img.shields.io/npm/fuzzing/npm.svg)](https://www.npmjs.com/package/fuzzing)
 # Fuzzing · 🐰
 Fuzzing is tool set for [fuzz testing](https://en.wikipedia.org/wiki/Fuzzing).
 
 Useful for a stress testing your functions with a different input parameters.
 
-# Examples
-To fuzzing choose three things:
+# Usage
+Fuzzing is [available on npm](https://www.npmjs.com/package/fuzzing).
+
+You can install it via:
+```
+npm i fuzzing
+```
+
+To starts fuzzing some functions choose three things:
 * function to fuzzing
 * set of parameters
 * type of collected result
