@@ -8,7 +8,7 @@ Useful for a stress testing your functions with a different input parameters.
 # Usage
 Fuzzing is [available on npm](https://www.npmjs.com/package/fuzzing).
 
-You can install it via:
+You can install project via:
 ```
 npm i fuzzing
 ```
