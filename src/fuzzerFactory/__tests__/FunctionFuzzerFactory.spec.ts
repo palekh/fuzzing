@@ -1,9 +1,10 @@
 import {FunctionFuzzer} from "../../fuzzer/FunctionFuzzer";
+import {fuzz} from "../../index";
 import {sum} from "../__mocks__/sum.mock";
-import {functionFuzzer, FunctionFuzzerFactory} from "../FunctionFuzzerFactory";
+import {FunctionFuzzerFactory} from "../FunctionFuzzerFactory";
 
 describe("FunctionFuzzerFactory", () => {
-    const sumFuzzerFactory = functionFuzzer(sum);
+    const sumFuzzerFactory = fuzz(sum);
 
     test("functionFuzzer should create function fuzzer instance", () => {
         expect(sumFuzzerFactory instanceof FunctionFuzzerFactory).toBe(true);

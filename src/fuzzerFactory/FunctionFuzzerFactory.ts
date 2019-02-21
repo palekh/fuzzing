@@ -89,7 +89,3 @@ export class FunctionFuzzerFactory implements IFunctionFuzzerFactory {
         return FunctionFuzzer.create(this.func, input).fuzz();
     }
 }
-
-export function functionFuzzer(func: AnyFunction): IFunctionFuzzerFactory {
-    return FunctionFuzzerFactory.create(func);
-}
