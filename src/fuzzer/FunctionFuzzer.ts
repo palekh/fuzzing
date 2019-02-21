@@ -6,7 +6,7 @@ import {Fuzzer, IFuzzer, IFuzzerParams} from "./Fuzzer";
 
 export class FunctionFuzzer extends Fuzzer implements IFuzzer {
     protected readonly params: IFuzzerParams;
-    private func: AnyFunction;
+    private readonly func: AnyFunction;
 
     private constructor(func: AnyFunction, params: IFuzzerParams) {
         super();

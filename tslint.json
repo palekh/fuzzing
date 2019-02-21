@@ -13,6 +13,7 @@
       true,
       "check-space"
     ],
+    "file-name-casing": false,
     "linebreak-style": false,
     "member-ordering": [
       true,
@@ -36,6 +37,7 @@
         ]
       }
     ],
+    "newline-per-chained-call": false,
     "no-any": false,
     "no-null-keyword": false,
     "no-magic-numbers": false,

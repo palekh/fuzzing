@@ -16,12 +16,8 @@ export interface IFuzzer {
 export type IFuzzerParams = any[];
 
 export abstract class Fuzzer implements IFuzzer {
-    protected readonly params: IFuzzerParams;
+    protected readonly params: IFuzzerParams = [];
     protected collector: ICollector = Collector.create();
-
-    protected constructor() {
-        // Empty
-    }
 
     public abstract fuzz(): Fuzzer;
 

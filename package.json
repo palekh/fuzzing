@@ -20,12 +20,12 @@
     "start": "tsc --watch --noEmit"
   },
   "devDependencies": {
-    "@types/jest": "20.0.8",
-    "@types/node": "8.0.28",
-    "jest": "21.1.0",
-    "ts-jest": "21.0.1",
-    "tslint": "5.7.0",
-    "typescript": "2.5.2"
+    "@types/jest": "24.0.6",
+    "@types/node": "11.9.4",
+    "jest": "24.1.0",
+    "ts-jest": "24.0.0",
+    "tslint": "5.12.1",
+    "typescript": "3.3.3333"
   },
   "jest": {
     "coverageReporters": [

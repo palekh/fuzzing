@@ -23,7 +23,7 @@ interface ICollectorState {
 }
 
 export class Collector implements ICollector {
-    private state: ICollectorState;
+    private readonly state: ICollectorState;
 
     private constructor() {
         this.state = {
