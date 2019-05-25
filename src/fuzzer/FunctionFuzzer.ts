@@ -31,7 +31,7 @@ export class FunctionFuzzer extends Fuzzer implements IFuzzer {
         return this;
     }
 
-    protected fuzzIteration(input: any): void | Promise<any> {
+    protected fuzzIteration(input: any): void {
         try {
             const result = this.func(input);
 
@@ -43,8 +43,9 @@ export class FunctionFuzzer extends Fuzzer implements IFuzzer {
                         })
                         .catch((error: any) => {
                             this.processResult(input, undefined, error);
-                        })
+                        }),
                 );
+
                 return;
             }
 

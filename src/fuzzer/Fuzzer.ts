@@ -18,7 +18,7 @@ export interface IFuzzer {
 export type IFuzzerParams = any[];
 
 export abstract class Fuzzer implements IFuzzer {
-    protected jobs: Promise<any>[] = [];
+    protected jobs: Array<Promise<any>> = [];
     protected readonly params: IFuzzerParams = [];
     protected collector: ICollector = Collector.create();
 
@@ -48,7 +48,8 @@ export abstract class Fuzzer implements IFuzzer {
         }
 
         const promise = Promise.all(this.jobs)
-            .then(() => getResults());
+            .then(getResults);
+
         return promise;
     }
 }

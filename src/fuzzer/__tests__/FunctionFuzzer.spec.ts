@@ -3,28 +3,28 @@ import {FunctionFuzzer} from "../FunctionFuzzer";
 
 describe("FunctionFuzzer", () => {
     describe("sync", () => {
-        test("method fuzzIteration should catch error when passed incorrect parameter", () => {
+        test("should catch error when passed incorrect parameter", () => {
             const fuzzer = FunctionFuzzer.create(getValues, []);
             (fuzzer as any).fuzzIteration(undefined);
             expect(fuzzer.errors()).toHaveLength(1);
             expect(fuzzer.all()).toHaveLength(1);
         });
-    
-        test("method fuzzIteration should handle warning when returned value is danger", () => {
+
+        test("should handle warning when returned value is danger", () => {
             const fuzzer = FunctionFuzzer.create(getValues, []);
             (fuzzer as any).fuzzIteration(null);
             expect(fuzzer.warnings()).toHaveLength(1);
             expect(fuzzer.all()).toHaveLength(1);
         });
-    
-        test("method fuzzIteration should handle success when function worked without unexpected behaviour", () => {
+
+        test("should handle success when function worked without unexpected behaviour", () => {
             const fuzzer = FunctionFuzzer.create(getValues, []);
             (fuzzer as any).fuzzIteration({});
             expect(fuzzer.successes()).toHaveLength(1);
             expect(fuzzer.all()).toHaveLength(1);
         });
-    
-        test("method fuzz should run fuzzing over undefined, null and passed parameters", () => {
+
+        test("should run fuzzing over undefined, null and passed parameters", () => {
             const fuzzer = FunctionFuzzer.create(getValues, [{}]);
             fuzzer.fuzz();
             expect(fuzzer.successes()).toHaveLength(1);
@@ -34,29 +34,30 @@ describe("FunctionFuzzer", () => {
         });
     });
 
+    /* tslint:disable no-floating-promises */
     describe("async", () => {
-        test("method fuzzIteration should catch error when passed incorrect parameter", async () => {
+        test("should catch error when passed incorrect parameter", async () => {
             const fuzzer = FunctionFuzzer.create(getValuesAsync, []);
             (fuzzer as any).fuzzIteration(undefined);
             expect(fuzzer.errors()).resolves.toHaveLength(1);
             expect(fuzzer.all()).resolves.toHaveLength(1);
         });
-    
-        test("method fuzzIteration should handle warning when returned value is danger", async () => {
+
+        test("should handle warning when returned value is danger", async () => {
             const fuzzer = FunctionFuzzer.create(getValuesAsync, []);
             (fuzzer as any).fuzzIteration(null);
             expect(fuzzer.warnings()).resolves.toHaveLength(1);
             expect(fuzzer.all()).resolves.toHaveLength(1);
         });
-    
-        test("method fuzzIteration should handle success when function worked without unexpected behaviour", async () => {
+
+        test("should handle success when function worked without unexpected behaviour", async () => {
             const fuzzer = FunctionFuzzer.create(getValuesAsync, []);
             (fuzzer as any).fuzzIteration({});
             expect(fuzzer.successes()).resolves.toHaveLength(1);
             expect(fuzzer.all()).resolves.toHaveLength(1);
         });
-    
-        test("method fuzz should run fuzzing over undefined, null and passed parameters", async () => {
+
+        test("should run fuzzing over undefined, null and passed parameters", async () => {
             const fuzzer = FunctionFuzzer.create(getValuesAsync, [{}]);
             fuzzer.fuzz();
             expect(fuzzer.successes()).resolves.toHaveLength(1);
