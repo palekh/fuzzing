@@ -1,8 +1,8 @@
 import {getNull} from "../checker/null";
 import {getUndefined} from "../checker/undefined";
+import {isDangerResult} from "../fuzzer/dangerResult";
+import {Fuzzer, IFuzzer, IFuzzerParams} from "../fuzzer/Fuzzer";
 import {AnyFunction} from "../types/anyFunction.type";
-import {isDangerResult} from "./dangerResult";
-import {Fuzzer, IFuzzer, IFuzzerParams} from "./Fuzzer";
 
 export class FunctionFuzzer extends Fuzzer implements IFuzzer {
     protected readonly params: IFuzzerParams;

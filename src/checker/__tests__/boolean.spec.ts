@@ -1,5 +1,5 @@
+import {testNonConsequentArray} from "../__tests__/array.spec";
 import {cornerCaseBooleanArray, nonConsequentBooleanArray} from "../boolean";
-import {testNonConsequentArray} from "./array.spec";
 
 describe("boolean checker", () => {
     testNonConsequentArray({

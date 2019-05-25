@@ -1,5 +1,5 @@
+import {testNonConsequentArray} from "../__tests__/array.spec";
 import {cornerCaseStringArray, nonConsequentStringArray} from "../string";
-import {testNonConsequentArray} from "./array.spec";
 
 describe("string checker", () => {
     testNonConsequentArray({

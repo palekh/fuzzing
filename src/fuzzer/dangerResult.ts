@@ -1,4 +1,4 @@
-export function getDangerResults() {
+export function getDangerResults(): any {
     return [
         Number.NaN,
         undefined,
