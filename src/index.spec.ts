@@ -1,12 +1,21 @@
 import {sum} from "./__mocks__/sum.mock";
+import {sumAsync} from "./__mocks__/sumAsync.mock";
 import {fuzz} from "./index";
 
 describe("fuzz", () => {
     test("should create snapshots with correct error descriptions", () => {
-        const errors = fuzz(sum)
+        const results = fuzz(sum)
             .numberArray()
             .all();
 
-        expect(errors).toMatchSnapshot();
+        expect(results).toMatchSnapshot();
+    });
+
+    test("should create snapshots with correct error descriptions for async functions", () => {
+        const results = fuzz(sumAsync)
+            .numberArray()
+            .all();
+
+        expect(results).toMatchSnapshot();
     });
 });
