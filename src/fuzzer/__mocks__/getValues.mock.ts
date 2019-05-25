@@ -7,3 +7,13 @@ export function getValues<T = any>(obj: IDictionary<T>): T[] | undefined {
 
     return Object.keys(obj).map(key => obj[key]);
 }
+
+export function getValuesAsync<T = any>(obj: IDictionary<T>): Promise<T[] | undefined> {
+    return new Promise((resolve, reject) => {    
+        if (obj === null) { // tslint:disable-line
+            reject(undefined);
+        }
+
+        resolve(Object.keys(obj).map(key => obj[key]));
+    });
+}

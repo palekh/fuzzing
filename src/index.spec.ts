@@ -11,12 +11,11 @@ describe("fuzz", () => {
         expect(results).toMatchSnapshot();
     });
 
-    test("should create snapshots with correct error descriptions for async functions", async done => {
+    test("should create snapshots with correct error descriptions for async functions", async () => {
         const results = await fuzz(sumAsync)
             .numberArray()
             .all();
 
         expect(results).toMatchSnapshot();
-        done();
     });
 });
