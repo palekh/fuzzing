@@ -25,75 +25,75 @@ function sum(arr) {
 }
 
 const errors = fuzz(sum) // 1. pick function you want to test (fuzz)
-   .string()             // 2. select set of input values from: number, string, boolean, numberArray, stringArray, booleanArray, all
+   .numberArray()        // 2. select set of input values from: number, string, boolean, numberArray, stringArray, booleanArray, all
    .errors();            // 3. choose output type from: successes, warnings, errors, all
 
-console.log(errors); // print result if needed to see what's going on
-// it would give you array of executed tests showing you input value / test result and stack trace in case of any error
+// print result to see what's going on
+console.log(errors);
+
+// it would give you array of executed tests
+// showing your input values, test results and stack trace in case of any error
 /*
- Array [
+Array [
   Object {
-    "description": "Normal result.",
-    "input": "",
-    "result": 0,
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": Array [
+      2.718281828459045,
+      3.141592653589793,
+      0.6931471805599453,
+      2.302585092994046,
+      1.4426950408889634,
+      0.4342944819032518,
+      0.7071067811865476,
+      1.4142135623730951,
+    ],
+    "result": 12.853916621954687,
     "type": "success",
   },
   Object {
-    "description": "Normal result.",
-    "input": "0",
-    "result": "00",
-    "type": "success",
-  },
-  Object {
-    "description": "Normal result.",
-    "input": "1",
-    "result": "01",
-    "type": "success",
-  },
-  Object {
-    "description": "Normal result.",
-    "input": "1234567890",
-    "result": "01234567890",
-    "type": "success",
-  },
-  Object {
-    "description": "Danger result: 0UPPER_CASE. Check function implementation",
-    "input": "UPPER_CASE",
-    "result": "0UPPER_CASE",
+    "description": "WARNING: Function returned result might be nullable or dangerous in some way",
+    "input": Array [
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      13,
+    ],
+    "result": NaN,
     "type": "warning",
   },
   Object {
-    "description": "Danger result: 0lower_case. Check function implementation",
-    "input": "lower_case",
-    "result": "0lower_case",
+    "description": "WARNING: Function returned result might be nullable or dangerous in some way",
+    "input": Array [
+      0,
+      1,
+      -1,
+      5e-324,
+      1.7976931348623157e+308,
+      NaN,
+      -Infinity,
+      Infinity,
+    ],
+    "result": NaN,
     "type": "warning",
   },
   Object {
-    "description": "Danger result: 0CamelCase. Check function implementation",
-    "input": "CamelCase",
-    "result": "0CamelCase",
-    "type": "warning",
-  },
-  Object {
-    "description": "Danger result: 0!@#$%^&*()_+-=\`~[]\\\\{}|;':,./<>?. Check function implementation",
-    "input": "!@#$%^&*()_+-=\`~[]\\\\{}|;':,./<>?",
-    "result": "0!@#$%^&*()_+-=\`~[]\\\\{}|;':,./<>?",
-    "type": "warning",
-  },
-  Object {
-    "description": "Danger result: 0aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa. Check function implementation",
-    "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "result": "0aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "type": "warning",
-  },
-  Object {
-    "description": "Function execution failed.",
+    "description": "FAILED: Function execution failed, check error stack trace",
     "error": [TypeError: Cannot read property 'length' of undefined],
     "input": undefined,
     "type": "error",
   },
   Object {
-    "description": "Function execution failed.",
+    "description": "FAILED: Function execution failed, check error stack trace",
     "error": [TypeError: Cannot read property 'length' of null],
     "input": null,
     "type": "error",
@@ -124,4 +124,4 @@ Available types of output are available as array of result items:
 * `all` - for all tests
 
 # Contribution
-Feel free to give valueable feedback ❤️. Igor Golopolosov
+Feel free to give valuable feedback ❤️ Igor Golopolosov

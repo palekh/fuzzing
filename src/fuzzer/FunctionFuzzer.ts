@@ -37,20 +37,20 @@ export class FunctionFuzzer extends Fuzzer implements IFuzzer {
 
             if (isDangerResult(result)) {
                 this.collector.addWarning({
-                    description: `Danger result: ${result}. Check function implementation`,
+                    description: "WARNING: Function returned result might be nullable or dangerous in some way",
                     input,
                     result,
                 });
             } else {
                 this.collector.addSuccess({
-                    description: "Normal result.",
+                    description: "SUCCESS: Function returned result is OK and no errors happened",
                     input,
                     result,
                 });
             }
         } catch (error) {
             this.collector.addError({
-                description: "Function execution failed.",
+                description: "FAILED: Function execution failed, check error stack trace",
                 error,
                 input,
             });

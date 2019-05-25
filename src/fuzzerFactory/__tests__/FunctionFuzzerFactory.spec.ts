@@ -14,7 +14,6 @@ describe("FunctionFuzzerFactory", () => {
         expect((sumFuzzerFactory as any).func).toBe(sum);
     });
 
-    
     const methodNames: Array<keyof FunctionFuzzerFactory> = [
         "boolean", "booleanArray", "number", "numberArray", "string", "stringArray", "all",
     ];
@@ -28,7 +27,7 @@ describe("FunctionFuzzerFactory", () => {
 
     test("should create snapshots with correct error descriptions", () => {
         const errors = fuzz(sum)
-            .string()
+            .numberArray()
             .all();
 
         expect(errors).toMatchSnapshot();

@@ -12,6 +12,7 @@
     "ci:build": "tsc --noEmit",
     "ci:lint": "npm run dev:lint",
     "ci:test": "jest",
+    "ci:test:update": "jest --updateSnapshot",
     "ci:coverage": "jest --coverage",
     "test": "npm run ci:build && npm run ci:lint && npm run ci:test",
     "precommit": "npm test",
