@@ -1,6 +1,6 @@
+import {sum} from "../../__mocks__/sum.mock";
 import {FunctionFuzzer} from "../../fuzzer/FunctionFuzzer";
 import {fuzz} from "../../index";
-import {sum} from "../__mocks__/sum.mock";
 import {FunctionFuzzerFactory} from "../FunctionFuzzerFactory";
 
 describe("FunctionFuzzerFactory", () => {
@@ -23,13 +23,5 @@ describe("FunctionFuzzerFactory", () => {
             expect((sumFuzzerFactory as any)[method]() instanceof FunctionFuzzer).toBe(true);
             expect(() => (sumFuzzerFactory as any)[method]()).not.toThrow();
         });
-    });
-
-    test("should create snapshots with correct error descriptions", () => {
-        const errors = fuzz(sum)
-            .numberArray()
-            .all();
-
-        expect(errors).toMatchSnapshot();
     });
 });
