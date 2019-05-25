@@ -86,6 +86,8 @@ export class FunctionFuzzerFactory implements IFunctionFuzzerFactory {
     }
 
     private createFuzzer(input: IFuzzerParams): IFuzzer {
-        return FunctionFuzzer.create(this.func, input).fuzz();
+        return FunctionFuzzer
+            .create(this.func, input)
+            .fuzz();
     }
 }

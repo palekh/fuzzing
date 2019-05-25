@@ -1,41 +1,54 @@
 import {Collector, ICollector} from "../collector/Collector";
 import {IResultTyped} from "../types/result.type";
 
+type FuzzerResult = IResultTyped[] | Promise<IResultTyped[]>;
+
 export interface IFuzzer {
     fuzz(): IFuzzer;
 
-    successes(): IResultTyped[];
+    successes(): FuzzerResult;
 
-    errors(): IResultTyped[];
+    errors(): FuzzerResult;
 
-    warnings(): IResultTyped[];
+    warnings(): FuzzerResult;
 
-    all(): IResultTyped[];
+    all(): FuzzerResult;
 }
 
 export type IFuzzerParams = any[];
 
 export abstract class Fuzzer implements IFuzzer {
+    protected jobs: Promise<any>[] = [];
     protected readonly params: IFuzzerParams = [];
     protected collector: ICollector = Collector.create();
 
     public abstract fuzz(): Fuzzer;
 
-    public successes(): IResultTyped[] {
-        return this.collector.getSuccesses();
+    public successes(): FuzzerResult {
+        return this.checkJobs(() => this.collector.getSuccesses());
     }
 
-    public errors(): IResultTyped[] {
-        return this.collector.getErrors();
+    public errors(): FuzzerResult {
+        return this.checkJobs(() => this.collector.getErrors());
     }
 
-    public warnings(): IResultTyped[] {
-        return this.collector.getWarnings();
+    public warnings(): FuzzerResult {
+        return this.checkJobs(() => this.collector.getWarnings());
     }
 
-    public all(): IResultTyped[] {
-        return this.collector.getAll();
+    public all(): FuzzerResult {
+        return this.checkJobs(() => this.collector.getAll());
     }
 
     protected abstract fuzzIteration(args: any): void;
+
+    protected checkJobs(getResults: () => IResultTyped[]): FuzzerResult {
+        if (this.jobs.length === 0) {
+            return getResults();
+        }
+
+        const promise = Promise.all(this.jobs)
+            .then(() => getResults());
+        return promise;
+    }
 }

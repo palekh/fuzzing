@@ -72,18 +72,21 @@ exports[`fuzz should create snapshots with correct error descriptions for async 
 Array [
   Object {
     "description": "SUCCESS: Function returned result is OK and no errors happened",
-    "input": undefined,
-    "result": Promise {},
+    "input": Array [
+      2.718281828459045,
+      3.141592653589793,
+      0.6931471805599453,
+      2.302585092994046,
+      1.4426950408889634,
+      0.4342944819032518,
+      0.7071067811865476,
+      1.4142135623730951,
+    ],
+    "result": 12.853916621954687,
     "type": "success",
   },
   Object {
-    "description": "SUCCESS: Function returned result is OK and no errors happened",
-    "input": null,
-    "result": Promise {},
-    "type": "success",
-  },
-  Object {
-    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "description": "WARNING: Function returned result might be nullable or dangerous in some way",
     "input": Array [
       undefined,
       undefined,
@@ -100,11 +103,11 @@ Array [
       undefined,
       13,
     ],
-    "result": Promise {},
-    "type": "success",
+    "result": NaN,
+    "type": "warning",
   },
   Object {
-    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "description": "WARNING: Function returned result might be nullable or dangerous in some way",
     "input": Array [
       0,
       1,
@@ -115,23 +118,20 @@ Array [
       -Infinity,
       Infinity,
     ],
-    "result": Promise {},
-    "type": "success",
+    "result": NaN,
+    "type": "warning",
   },
   Object {
-    "description": "SUCCESS: Function returned result is OK and no errors happened",
-    "input": Array [
-      2.718281828459045,
-      3.141592653589793,
-      0.6931471805599453,
-      2.302585092994046,
-      1.4426950408889634,
-      0.4342944819032518,
-      0.7071067811865476,
-      1.4142135623730951,
-    ],
-    "result": Promise {},
-    "type": "success",
+    "description": "FAILED: Function execution failed, check error stack trace",
+    "error": [TypeError: Cannot read property 'length' of undefined],
+    "input": undefined,
+    "type": "error",
+  },
+  Object {
+    "description": "FAILED: Function execution failed, check error stack trace",
+    "error": [TypeError: Cannot read property 'length' of null],
+    "input": null,
+    "type": "error",
   },
 ]
 `;
