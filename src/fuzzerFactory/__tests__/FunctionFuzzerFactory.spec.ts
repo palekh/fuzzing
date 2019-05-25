@@ -14,14 +14,23 @@ describe("FunctionFuzzerFactory", () => {
         expect((sumFuzzerFactory as any).func).toBe(sum);
     });
 
-    test("factory methods should creates fuzzer without error", () => {
-        const methodNames: Array<keyof FunctionFuzzerFactory> = [
-            "boolean", "booleanArray", "number", "numberArray", "string", "stringArray", "all",
-        ];
+    
+    const methodNames: Array<keyof FunctionFuzzerFactory> = [
+        "boolean", "booleanArray", "number", "numberArray", "string", "stringArray", "all",
+    ];
 
-        methodNames.forEach(method => {
+    methodNames.forEach(method => {
+        test(`factory method: ${method} should creates fuzzer without error`, () => {
             expect((sumFuzzerFactory as any)[method]() instanceof FunctionFuzzer).toBe(true);
             expect(() => (sumFuzzerFactory as any)[method]()).not.toThrow();
         });
+    });
+
+    test("should create snapshots with correct error descriptions", () => {
+        const errors = fuzz(sum)
+            .string()
+            .all();
+
+        expect(errors).toMatchSnapshot();
     });
 });
