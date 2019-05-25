@@ -104,7 +104,31 @@ Array [
 
 # Testing API's
 
-to do
+The same way you can use **fuzzing** to call API endpoint with different payloads to test the behavior of your web server.
+
+```js
+import {fuzz} from 'fuzzing';
+
+/**
+ * For example you want to ping github
+ */
+function pingGithub(url) {
+    return fetch('https://github.io/' + url, { mode: 'no-cors' });
+}
+
+const errors = await fuzz(pingGithub)
+   .string()
+   .errors();
+
+console.log(errors);
+
+// OR
+
+fuzz(pingGithub)
+   .string()
+   .errors()
+   .then(console.log);
+```
 
 # Sets of input parameters
 
