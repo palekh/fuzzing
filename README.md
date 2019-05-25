@@ -1,24 +1,18 @@
 [![Travis build](https://img.shields.io/travis/usehotkey/fuzzing.svg?style=flat-square)](https://travis-ci.org/usehotkey/fuzzing)
 [![NPM Package](https://img.shields.io/npm/v/fuzzing.svg?style=flat-square)](https://www.npmjs.com/package/fuzzing)
 # Fuzzing · 🐰
-Fuzzing is tool set for [fuzz testing](https://en.wikipedia.org/wiki/Fuzzing).
-
-Useful for a stress testing your functions with a different input parameters.
+Fuzzing is tool set for **fuzz testing**. Useful for a stress testing your functions under different inputs.
 
 # Usage
-Fuzzing is [available on npm](https://www.npmjs.com/package/fuzzing).
-
-Install project via:
+Install package:
 ```
-npm i fuzzing
+npm i fuzzing -SD
 ```
 
-To start do fuzzing take three steps:
-* pick function you want to fuzz
-* select set of parameters
+To start fuzzing take three steps:
+* pick function you want to test (fuzz)
+* select set of input values
 * choose how you will receive a result back
-
-Example:
 
 ```js
 import {fuzz} from 'fuzzing';
@@ -27,9 +21,9 @@ function sum(arr) {
    return arr.reduce((accumulator, item) => accumulator + item, 0);
 }
 
-const errors = fuzz(sum)
-   .string()
-   .errors();
+const errors = fuzz(sum) // 1. pick function you want to test (fuzz)
+   .string()             // 2. select set of input values from: number, string, boolean, numberArray, stringArray, booleanArray, all
+   .errors();            // 3. choose output type from: successes, warnings, errors, all
 
 console.log(errors);
 /*
@@ -47,20 +41,17 @@ console.log(errors);
 ```
 
 # Sets of input parameters
-You can find detailed information set variants here [checker folder](https://github.com/usehotkey/fuzzing/tree/master/src/checker);
 
 Sets of parameters:
 
 * `number` - Number
-* `numberArray` - Array of a numbers
+* `string` - String
 * `boolean` - Boolean
-* `booleanArray` - Array of a booleans
-* `stringy` - String
+* `numberArray` - Array of a numbers
 * `stringArray` - Array of strings
+* `booleanArray` - Array of a booleans
 
 * `all` - All the data sets
 
 # Contribution
-Feel free to give a feedback.
-
-We accept pull requests!
+Feel free to give valueable feedback ❤️. Igor Golopolosov
