@@ -134,12 +134,14 @@ fuzz(pingGithub)
 
 Available sets of parameters:
 
+* `boolean` - Boolean
 * `number` - Number
 * `string` - String
-* `boolean` - Boolean
+* `object` - Object **NEW**
+* `booleanArray` - Array of a booleans
 * `numberArray` - Array of a numbers
 * `stringArray` - Array of strings
-* `booleanArray` - Array of a booleans
+* `objectArray` - Array of objects **NEW**
 * `all` - All the data sets
 
 # Types of output
@@ -147,8 +149,8 @@ Available sets of parameters:
 Available types of output are available as array of result items:
 
 * `successes` - for passed tests
-* `errors` - for failed tests
 * `warnings` - for tests resulted with tricky or danger returned value
+* `errors` - for failed tests
 * `all` - for all tests
 
 # Contribution
