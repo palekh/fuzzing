@@ -5,7 +5,7 @@ import {fuzz} from "./index";
 describe("fuzz", () => {
     test("should create snapshots with correct error descriptions", () => {
         const results = fuzz(sum)
-            .numberArray()
+            .all()
             .all();
 
         expect(results).toMatchSnapshot();
@@ -13,7 +13,7 @@ describe("fuzz", () => {
 
     test("should create snapshots with correct error descriptions for async functions", async () => {
         const results = await fuzz(sumAsync)
-            .numberArray()
+            .all()
             .all();
 
         expect(results).toMatchSnapshot();
