@@ -23,6 +23,6 @@ export function testNonConsequentArray<T>(params: ITestNonConsequentArrayParams<
             expect(arr[i]).toBe(undefined);
         }
 
-        expect(arr[13]).toBe(params.expected);
+        expect(arr[13]).toStrictEqual(params.expected);
     });
 }
