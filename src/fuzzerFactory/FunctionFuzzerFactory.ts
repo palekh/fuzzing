@@ -1,28 +1,31 @@
-import {cornerCaseBooleanArray, nonConsequentBooleanArray} from "../checker/boolean";
-import {cornerCaseNumberArray, mathNumberArray, nonConsequentNumberArray} from "../checker/number";
-import {cornerCaseObjectArray, nonConsequentObjectArray} from "../checker/object";
-import {cornerCaseStringArray, nonConsequentStringArray} from "../checker/string";
 import {FunctionFuzzer} from "../fuzzer/FunctionFuzzer";
 import {IFuzzer, IFuzzerParams} from "../fuzzer/Fuzzer";
+import {FuzzingPreset, IFuzzingPreset} from "../fuzzingPreset/FuzzingPreset";
 import {AnyFunction} from "../types/anyFunction.type";
 
 export interface IFunctionFuzzerFactory {
     number(): IFuzzer;
-
     numberArray(): IFuzzer;
 
     string(): IFuzzer;
-
     stringArray(): IFuzzer;
+
+    boolean(): IFuzzer;
+    booleanArray(): IFuzzer;
+
+    object(): IFuzzer;
+    objectArray(): IFuzzer;
 
     all(): IFuzzer;
 }
 
 export class FunctionFuzzerFactory implements IFunctionFuzzerFactory {
     private readonly func: AnyFunction;
+    private readonly preset: IFuzzingPreset;
 
     private constructor(func: AnyFunction) {
         this.func = func;
+        this.preset = new FuzzingPreset();
     }
 
     public static create(func: AnyFunction): FunctionFuzzerFactory {
@@ -30,79 +33,39 @@ export class FunctionFuzzerFactory implements IFunctionFuzzerFactory {
     }
 
     public boolean(): IFuzzer {
-        return this.createFuzzer([
-            ...cornerCaseBooleanArray(),
-        ]);
+        return this.createFuzzer(this.preset.boolean());
     }
 
     public booleanArray(): IFuzzer {
-        return this.createFuzzer([
-            cornerCaseBooleanArray(),
-            nonConsequentBooleanArray(),
-        ]);
+        return this.createFuzzer(this.preset.booleanArray());
     }
 
     public number(): IFuzzer {
-        return this.createFuzzer([
-            ...cornerCaseNumberArray(),
-            ...mathNumberArray(),
-        ]);
+        return this.createFuzzer(this.preset.number());
     }
 
     public numberArray(): IFuzzer {
-        return this.createFuzzer([
-            cornerCaseNumberArray(),
-            mathNumberArray(),
-            nonConsequentNumberArray(),
-        ]);
+        return this.createFuzzer(this.preset.numberArray());
     }
 
     public string(): IFuzzer {
-        return this.createFuzzer([
-            ...cornerCaseStringArray(),
-        ]);
+        return this.createFuzzer(this.preset.string());
     }
 
     public stringArray(): IFuzzer {
-        return this.createFuzzer([
-            cornerCaseStringArray(),
-            nonConsequentStringArray(),
-        ]);
+        return this.createFuzzer(this.preset.stringArray());
     }
 
     public object(): IFuzzer {
-        return this.createFuzzer([
-            ...cornerCaseObjectArray(),
-        ]);
+        return this.createFuzzer(this.preset.object());
     }
 
     public objectArray(): IFuzzer {
-        return this.createFuzzer([
-            cornerCaseObjectArray(),
-            nonConsequentObjectArray(),
-        ]);
+        return this.createFuzzer(this.preset.objectArray());
     }
 
     public all(): IFuzzer {
-        return this.createFuzzer([
-            ...cornerCaseBooleanArray(),
-            cornerCaseBooleanArray(),
-            nonConsequentBooleanArray(),
-
-            ...cornerCaseNumberArray(),
-            ...mathNumberArray(),
-            cornerCaseNumberArray(),
-            mathNumberArray(),
-            nonConsequentNumberArray(),
-
-            ...cornerCaseStringArray(),
-            cornerCaseStringArray(),
-            nonConsequentStringArray(),
-
-            ...cornerCaseObjectArray(),
-            cornerCaseObjectArray(),
-            nonConsequentObjectArray(),
-        ]);
+        return this.createFuzzer(this.preset.all());
     }
 
     private createFuzzer(input: IFuzzerParams): IFuzzer {

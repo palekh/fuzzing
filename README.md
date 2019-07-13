@@ -137,11 +137,11 @@ Available sets of parameters:
 * `boolean` - Boolean
 * `number` - Number
 * `string` - String
-* `object` - Object **NEW**
+* `object` - Object
 * `booleanArray` - Array of a booleans
 * `numberArray` - Array of a numbers
 * `stringArray` - Array of strings
-* `objectArray` - Array of objects **NEW**
+* `objectArray` - Array of objects
 * `all` - All the data sets
 
 # Types of output
@@ -154,4 +154,4 @@ Available types of output are available as array of result items:
 * `all` - for all tests
 
 # Contribution
-Feel free to give valuable feedback ❤️ Igor Golopolosov
+Feel free to give a valuable feedback ❤️ Igor Golopolosov

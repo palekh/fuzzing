@@ -8,7 +8,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "dev:lint": "tslint -p . --type-check -c \"./tslint.json\" \"./src/**/*.ts\"",
+    "dev:lint": "tslint -p . -c \"./tslint.json\" \"./src/**/*.ts\"",
     "ci:build": "tsc --noEmit",
     "ci:lint": "npm run dev:lint",
     "ci:test": "jest",
