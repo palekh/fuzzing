@@ -877,3 +877,442 @@ Array [
   },
 ]
 `;
+
+exports[`under should create snapshots with correct error descriptions 1`] = `
+Array [
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": false,
+    "result": 0,
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": true,
+    "result": 0,
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": Array [
+      false,
+      true,
+    ],
+    "result": 1,
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": 0,
+    "result": 0,
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": 1,
+    "result": 0,
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": -1,
+    "result": 0,
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": 5e-324,
+    "result": 0,
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": 1.7976931348623157e+308,
+    "result": 0,
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": NaN,
+    "result": 0,
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": -Infinity,
+    "result": 0,
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": Infinity,
+    "result": 0,
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": 2.718281828459045,
+    "result": 0,
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": 3.141592653589793,
+    "result": 0,
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": 0.6931471805599453,
+    "result": 0,
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": 2.302585092994046,
+    "result": 0,
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": 1.4426950408889634,
+    "result": 0,
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": 0.4342944819032518,
+    "result": 0,
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": 0.7071067811865476,
+    "result": 0,
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": 1.4142135623730951,
+    "result": 0,
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": Array [
+      2.718281828459045,
+      3.141592653589793,
+      0.6931471805599453,
+      2.302585092994046,
+      1.4426950408889634,
+      0.4342944819032518,
+      0.7071067811865476,
+      1.4142135623730951,
+    ],
+    "result": 12.853916621954687,
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": "",
+    "result": 0,
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": "0",
+    "result": "00",
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": "1",
+    "result": "01",
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": "UPPER_CASE",
+    "result": "0UPPER_CASE",
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": "lower_case",
+    "result": "0lower_case",
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": "CamelCase",
+    "result": "0CamelCase",
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": "!@#$%^&*()_+-=\`~[]\\\\{}|;':,./<>?",
+    "result": "0!@#$%^&*()_+-=\`~[]\\\\{}|;':,./<>?",
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": "1234567890",
+    "result": "01234567890",
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "result": "0aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": Array [
+      "",
+      "0",
+      "1",
+      "UPPER_CASE",
+      "lower_case",
+      "CamelCase",
+      "!@#$%^&*()_+-=\`~[]\\\\{}|;':,./<>?",
+      "1234567890",
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    ],
+    "result": "001UPPER_CASElower_caseCamelCase!@#$%^&*()_+-=\`~[]\\\\{}|;':,./<>?1234567890aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": Array [
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      "string",
+    ],
+    "result": "NaNstring",
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": Object {},
+    "result": 0,
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": Object {
+      "key": "value",
+    },
+    "result": 0,
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": Object {
+      "1": "value",
+      "1.23": "value",
+      "false": "value",
+      "key": "value",
+      "key1": "value",
+      "null": "value",
+      "true": "value",
+      "undefined": "value",
+    },
+    "result": 0,
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": Object {
+      "key": Object {
+        "key": Object {
+          "key": Object {
+            "key": Object {
+              "key": Object {
+                "key": Object {
+                  "key": Object {
+                    "key": Object {
+                      "key": Object {
+                        "key": Object {
+                          "key": Object {
+                            "key": Object {
+                              "key": Object {
+                                "key": Object {
+                                  "key": Object {
+                                    "key": "value",
+                                  },
+                                },
+                              },
+                            },
+                          },
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    "result": 0,
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": Array [
+      Object {},
+      Object {
+        "key": "value",
+      },
+      Object {
+        "1": "value",
+        "1.23": "value",
+        "false": "value",
+        "key": "value",
+        "key1": "value",
+        "null": "value",
+        "true": "value",
+        "undefined": "value",
+      },
+      Object {
+        "key": Object {
+          "key": Object {
+            "key": Object {
+              "key": Object {
+                "key": Object {
+                  "key": Object {
+                    "key": Object {
+                      "key": Object {
+                        "key": Object {
+                          "key": Object {
+                            "key": Object {
+                              "key": Object {
+                                "key": Object {
+                                  "key": Object {
+                                    "key": Object {
+                                      "key": "value",
+                                    },
+                                  },
+                                },
+                              },
+                            },
+                          },
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    ],
+    "result": "0[object Object][object Object][object Object][object Object]",
+    "type": "success",
+  },
+  Object {
+    "description": "SUCCESS: Function returned result is OK and no errors happened",
+    "input": Array [
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      Object {},
+    ],
+    "result": "NaN[object Object]",
+    "type": "success",
+  },
+  Object {
+    "description": "WARNING: Function returned result might be nullable or dangerous in some way",
+    "input": Array [
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      false,
+    ],
+    "result": NaN,
+    "type": "warning",
+  },
+  Object {
+    "description": "WARNING: Function returned result might be nullable or dangerous in some way",
+    "input": Array [
+      0,
+      1,
+      -1,
+      5e-324,
+      1.7976931348623157e+308,
+      NaN,
+      -Infinity,
+      Infinity,
+    ],
+    "result": NaN,
+    "type": "warning",
+  },
+  Object {
+    "description": "WARNING: Function returned result might be nullable or dangerous in some way",
+    "input": Array [
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      13,
+    ],
+    "result": NaN,
+    "type": "warning",
+  },
+  Object {
+    "description": "FAILED: Function execution failed, check error stack trace",
+    "error": [TypeError: Cannot read property 'length' of undefined],
+    "input": undefined,
+    "type": "error",
+  },
+  Object {
+    "description": "FAILED: Function execution failed, check error stack trace",
+    "error": [TypeError: Cannot read property 'length' of null],
+    "input": null,
+    "type": "error",
+  },
+]
+`;
