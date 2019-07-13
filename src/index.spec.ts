@@ -5,7 +5,7 @@ import {fuzz, preset} from "./index";
 describe("under", () => {
     test("should accept presets", () => {
         const results = fuzz(sum)
-            .under(preset.all())
+            .under(preset.string())
             .all();
 
         expect(results).toMatchSnapshot();
