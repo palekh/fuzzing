@@ -73,7 +73,7 @@ export class FunctionFuzzerFactory implements IFunctionFuzzerFactory {
         return this.createFuzzer(input[0]);
     }
 
-    private createFuzzer(input: IFuzzerParams): IFuzzer {
+    private createFuzzer(...input: IFuzzerParams): IFuzzer {
         return FunctionFuzzer
             .create(this.func, input)
             .fuzz();

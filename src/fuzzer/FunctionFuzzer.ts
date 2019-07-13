@@ -5,27 +5,33 @@ import {Fuzzer, IFuzzer, IFuzzerParams} from "../fuzzer/Fuzzer";
 import {AnyFunction} from "../types/anyFunction.type";
 
 export class FunctionFuzzer extends Fuzzer implements IFuzzer {
-    protected readonly params: IFuzzerParams;
+    protected readonly params: IFuzzerParams[];
     private readonly func: AnyFunction;
 
-    private constructor(func: AnyFunction, params: IFuzzerParams) {
+    private constructor(func: AnyFunction, params: IFuzzerParams[]) {
         super();
         this.func = func;
         this.params = params;
     }
 
-    public static create(func: AnyFunction, params: IFuzzerParams): FunctionFuzzer {
-        return new FunctionFuzzer(func, [
+    public static create(func: AnyFunction, params: IFuzzerParams[]): FunctionFuzzer {
+        const reachParams = params.map(parameter => [
             getUndefined(),
             getNull(),
-            ...params,
+            ...parameter,
         ]);
+
+        return new FunctionFuzzer(func, reachParams);
     }
 
     public fuzz(): this {
         for (let i = 0; i < this.params.length; i += 1) {
             const parameter = this.params[i];
-            this.fuzzIteration(parameter);
+
+            for (let j = 0; j < parameter.length; j += 1) {
+                const input = parameter[j];
+                this.fuzzIteration(input);
+            }
         }
 
         return this;
