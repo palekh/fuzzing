@@ -17,7 +17,7 @@ export interface IFunctionFuzzerFactory {
     objectArray(): IFuzzer;
 
     all(): IFuzzer;
-    under(input: IFuzzerParams): IFuzzer;
+    under(...input: IFuzzerParams): IFuzzer;
 }
 
 export class FunctionFuzzerFactory implements IFunctionFuzzerFactory {
@@ -69,8 +69,8 @@ export class FunctionFuzzerFactory implements IFunctionFuzzerFactory {
         return this.createFuzzer(this.preset.all());
     }
 
-    public under(input: IFuzzerParams): IFuzzer {
-        return this.createFuzzer(input);
+    public under(...input: IFuzzerParams): IFuzzer {
+        return this.createFuzzer(input[0]);
     }
 
     private createFuzzer(input: IFuzzerParams): IFuzzer {
