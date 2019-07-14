@@ -25,8 +25,8 @@ function sum(arr) {
 }
 
 const errors = fuzz(sum) // 1. pick function you want to test (fuzz)
-   .numberArray()        // 2. select set of input values from: number, string, boolean, numberArray, stringArray, booleanArray, all
-   .errors();            // 3. choose output type from: successes, warnings, errors, all
+   .numberArray()        // 2. select set of input values from [input presets](#presets-of-input-parameters)
+   .errors();            // 3. choose output type from [output types](#types-of-output)
 
 // print result to see what's going on
 console.log(errors);
@@ -102,6 +102,26 @@ Array [
 */
 ```
 
+# Passing Multiple Parameters
+
+```js
+/**
+ * Import `preset` const which contains [all the presets](#presets-of-input-parameters)
+ */
+import {fuzz, preset} from 'fuzzing';
+
+function multiply(a, b) {
+   return a * b;
+}
+
+const warnings = fuzz(multiply)                // 1. pick function you want to test (fuzz)
+   .under(preset.number(), preset.number())    // 2. select presets for each function argument from [input presets](#presets-of-input-parameters)
+   .errors();            // 3. choose output type from [output types](#types-of-output)
+
+// print result to see what's going on
+console.log(warnings);
+```
+
 # Testing API's
 
 The same way you can use **fuzzing** to call API endpoint with different payloads to test the behavior of your web server.
@@ -130,7 +150,7 @@ fuzz(pingGithub)
    .then(console.log);
 ```
 
-# Sets of input parameters
+# Presets of input parameters
 
 Available sets of parameters:
 
