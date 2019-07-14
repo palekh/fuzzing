@@ -1,5 +1,6 @@
 import {getNull} from "../checker/null";
 import {getUndefined} from "../checker/undefined";
+import {allCombinations} from "../fuzzer/allCombinations";
 import {isDangerResult} from "../fuzzer/dangerResult";
 import {Fuzzer, IFuzzer, IFuzzerParams} from "../fuzzer/Fuzzer";
 import {AnyFunction} from "../types/anyFunction.type";
@@ -14,7 +15,7 @@ export class FunctionFuzzer extends Fuzzer implements IFuzzer {
         this.params = params;
     }
 
-    public static create(func: AnyFunction, params: IFuzzerParams[]): FunctionFuzzer {
+    public static create(func: AnyFunction, ...params: IFuzzerParams[][]): FunctionFuzzer {
         const reachParams = params.map(parameter => [
             getUndefined(),
             getNull(),
@@ -25,21 +26,14 @@ export class FunctionFuzzer extends Fuzzer implements IFuzzer {
     }
 
     public fuzz(): this {
-        for (let i = 0; i < this.params.length; i += 1) {
-            const parameter = this.params[i];
-
-            for (let j = 0; j < parameter.length; j += 1) {
-                const input = parameter[j];
-                this.fuzzIteration(input);
-            }
-        }
-
+        const combinations = allCombinations(this.params);
+        combinations.forEach(params => this.fuzzIteration(...params));
         return this;
     }
 
-    protected fuzzIteration(input: any): void {
+    protected fuzzIteration(...input: any[]): void {
         try {
-            const result = this.func(input);
+            const result = this.func(...input);
 
             if (result && typeof result.then === "function") {
                 this.jobs.push(
@@ -61,7 +55,7 @@ export class FunctionFuzzer extends Fuzzer implements IFuzzer {
         }
     }
 
-    protected processResult(input: any, result: any, error: any): void {
+    protected processResult(input: any[], result: any, error: any): void {
         if (error) {
             this.collector.addError({
                 description: "FAILED: Function execution failed, check error stack trace",

@@ -70,12 +70,12 @@ export class FunctionFuzzerFactory implements IFunctionFuzzerFactory {
     }
 
     public under(...input: IFuzzerParams): IFuzzer {
-        return this.createFuzzer(input[0]);
+        return this.createFuzzer(...input);
     }
 
     private createFuzzer(...input: IFuzzerParams): IFuzzer {
         return FunctionFuzzer
-            .create(this.func, input)
+            .create(this.func, ...input)
             .fuzz();
     }
 }
