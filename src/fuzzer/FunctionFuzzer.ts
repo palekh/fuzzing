@@ -15,7 +15,7 @@ export class FunctionFuzzer extends Fuzzer implements IFuzzer {
         this.params = params;
     }
 
-    public static create(func: AnyFunction, ...params: IFuzzerParams[][]): FunctionFuzzer {
+    public static create(func: AnyFunction, ...params: IFuzzerParams[]): FunctionFuzzer {
         const reachParams = params.map(parameter => [
             getUndefined(),
             getNull(),
@@ -27,7 +27,10 @@ export class FunctionFuzzer extends Fuzzer implements IFuzzer {
 
     public fuzz(): this {
         const combinations = allCombinations(this.params);
-        combinations.forEach(params => this.fuzzIteration(...params));
+        combinations.forEach(params => {
+            this.fuzzIteration(...params);
+        });
+
         return this;
     }
 

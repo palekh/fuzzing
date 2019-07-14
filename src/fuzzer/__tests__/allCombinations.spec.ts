@@ -4,7 +4,7 @@ describe("allCombinations", () => {
     test("should return all possible combinations for provided input", () => {
         const input = [
             ["c", true, {}],
-            [4, []]
+            [4, []],
         ];
         const output = [
             ["c", 4],
@@ -22,7 +22,7 @@ describe("allCombinations", () => {
         const input = [
             ["c", true, {}],
             [4, []],
-            [NaN, null, Math.PI]
+            [NaN, null, Math.PI],
         ];
         const output = [
             ["c", 4, NaN],

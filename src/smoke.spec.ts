@@ -19,7 +19,7 @@ describe("fuzz", () => {
     });
 
     test("should accept async functions", async () => {
-        const results = await fuzz(sumAsync)
+        const results = fuzz(sumAsync)
             .all();
         const all = await results.all();
         const errors = await results.errors();

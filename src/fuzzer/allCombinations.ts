@@ -7,11 +7,11 @@ export function allCombinations(input: any[][]): any[][] {
     while (counters.length === input.length) {
         const iteration: any = [];
         counters.forEach((counter, index) => {
-            iteration.push(input[index][counter]); 
+            iteration.push(input[index][counter]);
         });
         output.push(iteration);
-    
-        counters[0] +=1;
+
+        counters[0] += 1;
         counters.forEach((counter, index) => {
             const max = input[index].length;
             if (counter >= max) {
