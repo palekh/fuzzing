@@ -3,16 +3,19 @@
 # Fuzzing · 🐰
 It is tool to perform **fuzz testing**. Sometimes it's hard to understand if your function would crash if you pass `null` or `undefined` or any unusual value into it. To check that you're doing right you can use this package for stress testing your functions and APIs under different payloads.
 
-# Usage
+# Installation
+
 First of all you need to install package like:
 ```
 npm i fuzzing -SD
 ```
 
+# Usage
+
 To start fuzzing follow few steps:
-* pick function you want to test (fuzz)
-* select set of input values, which will be used as arguments passed into the function
-* choose output type if you want to see `errors` or `warnings` produced after function execution
+* pick function you want to fuzz
+* select set of input values, which will be used as arguments passed into the function - [input presets](#presets-of-input-parameters)
+* choose output type if you want to see `errors` or `warnings` produced after function execution - [output types](#types-of-output)
 
 ```js
 import {fuzz} from 'fuzzing';
@@ -24,9 +27,9 @@ function sum(arr) {
    return arr.reduce((accumulator, item) => accumulator + item, 0);
 }
 
-const errors = fuzz(sum) // 1. pick function you want to test (fuzz)
-   .numberArray()        // 2. select set of input values from [input presets](#presets-of-input-parameters)
-   .errors();            // 3. choose output type from [output types](#types-of-output)
+const errors = fuzz(sum) // pick function you want to fuzz
+   .numberArray()        // select preset of input values
+   .errors();            // choose output type
 
 // print result to see what's going on
 console.log(errors);
@@ -104,21 +107,19 @@ Array [
 
 # Passing Multiple Parameters
 
+To start fuzzing functions which expects multiple arguments you should import `preset` const which contains [all the presets](#presets-of-input-parameters).
+
 ```js
-/**
- * Import `preset` const which contains [all the presets](#presets-of-input-parameters)
- */
 import {fuzz, preset} from 'fuzzing';
 
 function multiply(a, b) {
    return a * b;
 }
 
-const warnings = fuzz(multiply)                // 1. pick function you want to test (fuzz)
-   .under(preset.number(), preset.number())    // 2. select presets for each function argument from [input presets](#presets-of-input-parameters)
-   .errors();            // 3. choose output type from [output types](#types-of-output)
-
-// print result to see what's going on
+const warnings = fuzz(multiply)
+   .under(preset.number(), preset.number())    // select presets for each function argument
+   .errors();
+   
 console.log(warnings);
 ```
 
