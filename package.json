@@ -1,15 +1,12 @@
 {
   "name": "fuzzing",
-  "version": "0.12.11",
+  "version": "0.12.12",
   "description": "Tool set for fuzz testing 🐰",
   "repository": "git://github.com/palekh/fuzzing.git",
   "author": "Igor Golopolosov<igolopolosov@gmail.com>",
   "license": "MIT",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "scripts": {
     "dev:lint": "tslint -p . -c \"./tslint.json\" \"./src/**/*.ts\"",
     "ci:build": "tsc --noEmit",
