@@ -1,31 +1,40 @@
-name: npm-publish
+name: Node.js Package
 on:
-  push:
-    branches:
-      - master
+  release:
+    types: [created]
+
 jobs:
-  npm-publish:
-    name: npm-publish
+  test:
+    name: test
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@master
-    - name: Set up Node.js
-      uses: actions/setup-node@master
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@master
       with:
-        node-version: 14.x.x
-
+        node-version: 14.x.
     - run: npm ci
     - run: npm run ci:lint
     - run: npm run ci:build
     - run: npm run ci:test
 
-    - name: Publish if version has been updated
-      uses: pascalgn/npm-publish-action@1.2.0
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
       with:
-        tag_name: "v%s"
-        tag_message: "v%s"
-        commit_pattern: "^:bookmark: Release (\\S+)"
+        node-version: 14.x
+        registry-url: 'https://registry.npmjs.org'
+    - run: npm install
+    - run: npm publish --access public
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    - uses: actions/setup-node@v1
+      with:
+        registry-url: 'https://npm.pkg.github.com'
+        scope: '@palekh'
+    - run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
