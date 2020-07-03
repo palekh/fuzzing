@@ -26,6 +26,7 @@ jobs:
       with:
         registry-url: 'https://npm.pkg.github.com'
         scope: '@palekh'
+    - run: npm ci
     - run: bash add-github-scope.sh
     - run: npm publish
       env:
@@ -39,7 +40,9 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: 14.x
-    - run: npm install
+        always-auth: true
+    - run: npm ci
+    - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
     - run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
