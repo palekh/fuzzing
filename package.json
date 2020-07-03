@@ -1,6 +1,6 @@
 {
   "name": "fuzzing",
-  "version": "0.12.16",
+  "version": "0.12.17",
   "description": "Tool set for fuzz testing 🐰",
   "repository": "git://github.com/palekh/fuzzing.git",
   "author": "Igor Golopolosov<igolopolosov@gmail.com>",
