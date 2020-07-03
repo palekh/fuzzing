@@ -1,5 +1,7 @@
 [![Travis build](https://img.shields.io/travis/usehotkey/fuzzing.svg?style=flat-square)](https://travis-ci.org/usehotkey/fuzzing)
 [![NPM Package](https://img.shields.io/npm/v/fuzzing.svg?style=flat-square)](https://www.npmjs.com/package/fuzzing)
+[![Node.js Package](https://github.com/palekh/fuzzing/workflows/Node.js%20Package/badge.svg?style=flat-square)](https://github.com/palekh/fuzzing/workflows/Node.js%20Package)
+
 # Fuzzing · 🐰
 It is tool to perform **fuzz testing**. Sometimes it's hard to understand if your function would crash if you pass `null` or `undefined` or any unusual value into it. To check that you're doing right you can use this package for stress testing your functions and APIs under different payloads.
 
