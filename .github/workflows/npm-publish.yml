@@ -18,6 +18,7 @@ jobs:
     - run: npm run ci:lint
     - run: npm run ci:build
     - run: npm run ci:test
+    - run: npm login --registry=https://npm.pkg.github.com/
     - name: Publish if version has been updated
       uses: pascalgn/npm-publish-action@1.2.0
       with:

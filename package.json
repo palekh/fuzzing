@@ -7,6 +7,9 @@
   "license": "MIT",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
     "dev:lint": "tslint -p . -c \"./tslint.json\" \"./src/**/*.ts\"",
     "ci:build": "tsc --noEmit",
