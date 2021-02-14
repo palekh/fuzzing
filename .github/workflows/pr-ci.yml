@@ -1,0 +1,17 @@
+name: Node.js Package
+on:
+  pull_request:
+
+jobs:
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 14.x
+    - run: npm ci
+    - run: npm run ci:lint
+    - run: npm run ci:build
+    - run: npm run ci:test

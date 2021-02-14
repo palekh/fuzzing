@@ -38,26 +38,26 @@ describe("FunctionFuzzer", () => {
     describe("async", () => {
         test("should catch error when passed incorrect parameter", async () => {
             const fuzzer = FunctionFuzzer.create(getValuesAsync, []);
-            (fuzzer as any).fuzzIteration(undefined);
+            await (fuzzer as any).fuzzIteration(undefined);
             expect(fuzzer.errors()).resolves.toHaveLength(1);
             expect(fuzzer.all()).resolves.toHaveLength(1);
         });
 
         test("should handle warning when returned value is danger", async () => {
             const fuzzer = FunctionFuzzer.create(getValuesAsync, []);
-            (fuzzer as any).fuzzIteration(null);
+            await (fuzzer as any).fuzzIteration(null);
             expect(fuzzer.warnings()).resolves.toHaveLength(1);
             expect(fuzzer.all()).resolves.toHaveLength(1);
         });
 
         test("should handle success when function worked without unexpected behaviour", async () => {
             const fuzzer = FunctionFuzzer.create(getValuesAsync, []);
-            (fuzzer as any).fuzzIteration({});
+            await (fuzzer as any).fuzzIteration({});
             expect(fuzzer.successes()).resolves.toHaveLength(1);
             expect(fuzzer.all()).resolves.toHaveLength(1);
         });
 
-        test("should run fuzzing over undefined, null and passed parameters", async () => {
+        test("should run fuzzing over undefined, null and passed parameters", () => {
             const fuzzer = FunctionFuzzer.create(getValuesAsync, [{}]);
             fuzzer.fuzz();
             expect(fuzzer.successes()).resolves.toHaveLength(1);
